@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import Campo from "../src/components/Campo";
 
 const Home: NextPage = () => {
   return (
@@ -62,7 +62,8 @@ const Home: NextPage = () => {
             </table>
           </div>
           <div id={styles.input_dados}>
-            Criar um componente de codigo de barra
+            <Campo name="edtCodBarra" title="Cód. Barra" />
+            <Campo name="edtQuantidade" title="Qtde." type="number" />
           </div>
         </div>
       </div>
