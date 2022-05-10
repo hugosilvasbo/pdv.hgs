@@ -1,0 +1,16 @@
+#conteudo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  #titulo {
+      color: #575757;
+  }
+
+  #campo {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgb(170, 170, 170);
+    padding: 8px; 
+  }
+}

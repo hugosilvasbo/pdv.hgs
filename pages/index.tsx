@@ -1,6 +1,9 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.scss";
-import Campo from "../src/components/Campo";
+import Campo from "../src/components/campos/Campo";
+import React from "react";
+import Totalizador from "../src/components/screen/home/Totalizador";
+import { title } from "process";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +23,12 @@ const Home: NextPage = () => {
           Incluir um grid com os tipos de produtos aqui etc..
         </div>
         <div id={styles.conteudo_direito}>
-          <div id={styles.info_produto}>Batata Frita</div>
+          <div id={styles.input_dados}>
+            <Campo
+              name="edtCodBarra"
+              placeholder="Enconte o item pelo código, nome ou código de barras"
+            />
+          </div>
           <div id={styles.grid_item}>
             <table id={styles.table_item}>
               <thead>
@@ -61,10 +69,16 @@ const Home: NextPage = () => {
               </tbody>
             </table>
           </div>
-          <div id={styles.input_dados}>
-            <Campo name="edtCodBarra" title="Cód. Barra" />
-            <Campo name="edtQuantidade" title="Qtde." type="number" />
-          </div>
+          <Totalizador
+            conteudo={[
+              //{ titulo: "Total de itens", total: "22,22" },
+              { titulo: "Total", total: "11,11" }
+            ]}
+          />
+          {/*<div id={styles.totalizador}>
+            <h3>Total</h3>
+            <h3>R$999,00</h3>
+  </div>*/}
         </div>
       </div>
     </div>

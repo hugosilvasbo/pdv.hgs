@@ -1,6 +1,8 @@
-$altura_cabecalho: 20px;
+$altura_cabecalho: 50px;
 $border_radius: 10px;
-$margin: 5px;
+$margin: 10px;
+$cor_titulos: #868686;
+$cor_bg_menu: rgb(99, 157, 223);
 
 #corpo {
   display: flex;
@@ -12,7 +14,7 @@ $margin: 5px;
 
 #cabecalho {
   align-items: center;
-  background-color: rgb(48, 48, 48);
+  background-color: $cor_bg_menu;
   color: white;
   display: flex;
   height: $altura_cabecalho;
@@ -23,14 +25,12 @@ $margin: 5px;
 }
 
 #conteudo {
-  color: white;
   display: flex;
   height: calc(100% - $altura_cabecalho);
   padding: $margin;
 
   #conteudo_esquerdo {
-    background-color: rgb(148, 148, 148);
-    border-radius: $border_radius;
+    background-color: rgb(235, 235, 235);
     margin-right: $margin;
     overflow: hidden;
     width: 60%;
@@ -41,27 +41,19 @@ $margin: 5px;
     flex-direction: column;
     width: 40%;
 
-    #info_produto {
-      align-items: center;
-      background-color: #464646;
-      border-radius: $border_radius;
-      color: white;
+    #input_dados {
       display: flex;
-      height: 40px;
-      font-size: 25px;
-      font-weight: bold;
-      justify-content: center;
-      margin-bottom: $margin;
-      width: 100%;
+      font-size: 14px;
+      padding-bottom: $margin;
     }
 
     #grid_item {
       border: 1px solid rgb(202, 202, 202);
-      border-radius: $border_radius;
+      border-top-left-radius: $border_radius;
+      border-top-right-radius: $border_radius;
       color: white;
       flex-grow: 1;
       overflow-y: scroll;
-      margin-bottom: $margin;
       padding: $margin;
 
       #table_item {
@@ -88,13 +80,6 @@ $margin: 5px;
           }
         }
       }
-    }
-
-    #input_dados {
-      background-color: rgb(46, 46, 46);
-      border-radius: $border_radius;
-      height: 100px;
-      display: flex;
     }
   }
 }

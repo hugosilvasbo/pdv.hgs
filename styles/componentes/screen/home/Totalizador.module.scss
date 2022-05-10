@@ -1,0 +1,14 @@
+#bloco {
+  background-color: rgb(99, 157, 223); //centralizar com o home
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+}
+
+#grupo {
+  color: white;
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: space-between;
+}
