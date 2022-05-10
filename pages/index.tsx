@@ -3,7 +3,6 @@ import styles from "../styles/Home.module.scss";
 import Campo from "../src/components/campos/Campo";
 import React from "react";
 import Totalizador from "../src/components/screen/home/Totalizador";
-import { title } from "process";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +19,8 @@ const Home: NextPage = () => {
       </header>
       <div id={styles.conteudo}>
         <div id={styles.conteudo_esquerdo}>
-          Incluir um grid com os tipos de produtos aqui etc..
+          Agora... fazer os cards dos produtos... <br/>
+          Criar um componente com a descriçao do grupo
         </div>
         <div id={styles.conteudo_direito}>
           <div id={styles.input_dados}>
@@ -71,14 +71,10 @@ const Home: NextPage = () => {
           </div>
           <Totalizador
             conteudo={[
-              //{ titulo: "Total de itens", total: "22,22" },
-              { titulo: "Total", total: "11,11" }
+              { titulo: "Desconto", total: "22,22" },
+              { titulo: "Total", total: "11,11" },
             ]}
           />
-          {/*<div id={styles.totalizador}>
-            <h3>Total</h3>
-            <h3>R$999,00</h3>
-  </div>*/}
         </div>
       </div>
     </div>

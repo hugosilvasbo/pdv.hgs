@@ -31,8 +31,10 @@ $cor_bg_menu: rgb(99, 157, 223);
 
   #conteudo_esquerdo {
     background-color: rgb(235, 235, 235);
+    border-radius: $border_radius;
     margin-right: $margin;
     overflow: hidden;
+    padding: $margin;
     width: 60%;
   }
 
