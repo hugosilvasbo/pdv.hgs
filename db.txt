@@ -1,0 +1,6 @@
+#Anotacoes das tabelas criadas até o momento:.
+
+create table pessoa (
+	id integer primary key,
+	razaosocial varchar(40)
+)

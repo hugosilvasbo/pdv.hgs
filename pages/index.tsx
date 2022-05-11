@@ -1,12 +1,31 @@
+import axios from "axios";
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.scss";
-import Campo from "../src/components/campos/Campo";
 import React from "react";
-import Totalizador from "../src/components/screen/home/Totalizador";
+import Campo from "../src/componentes/fields/Campo";
+import Totalizador from "../src/componentes/screen/home/Totalizador";
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
+  var handleKeyPress = (event: any) => {
+    alert("Keypressionada: " + event.key)
+  }
+
+  function onKeyBuscarPessoa() {
+    alert("Informamções fictícias...")
+    
+    axios.get("api/pessoa/buscarPorID", {
+      params: {
+        ID: 123
+      }
+    }).then((res) => {
+      console.log(res)
+    }).catch((e) => {
+      console.log(e)
+    })
+  }
+
   return (
-    <div id={styles.corpo}>
+    <div onKeyDown={handleKeyPress} tabIndex={0} id={styles.corpo}>
       <header id={styles.cabecalho}>
         <ul>
           OPERADOR:..
@@ -15,11 +34,12 @@ const Home: NextPage = () => {
         <ul>
           CAIXA:..
           <li>001</li>
+          <button onClick={onKeyBuscarPessoa}>Clicou-se</button>
         </ul>
       </header>
       <div id={styles.conteudo}>
         <div id={styles.conteudo_esquerdo}>
-          Agora... fazer os cards dos produtos... <br/>
+          Agora... fazer os cards dos produtos... <br />
           Criar um componente com a descriçao do grupo
         </div>
         <div id={styles.conteudo_direito}>
