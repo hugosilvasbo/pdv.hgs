@@ -40,11 +40,11 @@
 
   #conteudo_esquerdo {
     background-color: rgb(235, 235, 235);
-    border-radius: $border_radius * 2;
+    border-radius: $border_radius;
     display: flex;
     flex-wrap: wrap;
     margin-right: $margin;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 10px;
     width: 60%;
   }
