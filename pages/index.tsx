@@ -5,25 +5,40 @@ import styles from "../styles/Home.module.scss";
 
 class Home extends React.Component {
   state = {
-    operador: "Indefinido",
     caixa: "000",
+    cliente_razaosocial: "",
+    operador: "Indefinido",
+    situacao_caixa: "CAIXA ABERTO",
   };
 
   render() {
     return (
       <div id={styles.corpo}>
         <header id={styles.cabecalho}>
-          <ul>
-            OPERADOR:..
-            <li>{this.state.operador}</li>
-          </ul>
-          <ul>
-            CAIXA:..
-            <li>{this.state.caixa}</li>
-            <button onClick={() => this.setState({ operador: "Hugo Souza" })}>
-              Botão teste
-            </button>
-          </ul>
+          <div id={styles.cabecalho_centro}>
+            <h1>{this.state.situacao_caixa}</h1>
+          </div>
+          <div id={styles.cabecalho_direito}>
+            <ul>
+              Cliente...
+              <li>{this.state.cliente_razaosocial}</li>
+            </ul>
+            <ul>
+              OPERADOR:...
+              <li>{this.state.operador}</li>
+            </ul>
+            <ul>
+              CAIXA:...
+              <li>{this.state.caixa}</li>
+              {/*<button
+                onClick={() =>
+                  this.setState({ situacao_caixa: "CAIXA FECHADO" })
+                }
+              >
+                Botão teste
+              </button>*/}
+            </ul>
+          </div>
         </header>
         <div id={styles.conteudo}>
           <div id={styles.conteudo_esquerdo}>

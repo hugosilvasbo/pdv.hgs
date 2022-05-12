@@ -17,11 +17,24 @@ $cor_bg_menu: rgb(99, 157, 223);
   background-color: $cor_bg_menu;
   color: white;
   display: flex;
+  font-size: 14px;
   height: $altura_cabecalho;
-  font-size: 12px;
-  justify-content: flex-end;
-  padding: 10px;
+  overflow: hidden;
   width: 100%;
+
+  #cabecalho_centro {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  #cabecalho_direito {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: $margin;
+    width: 100%;
+  }
 }
 
 #conteudo {
