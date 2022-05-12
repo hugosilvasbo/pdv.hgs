@@ -1,8 +1,4 @@
-$altura_cabecalho: 50px;
-$border_radius: 10px;
-$margin: 10px;
-$cor_titulos: #868686;
-$cor_bg_menu: rgb(99, 157, 223);
+@import 'variaveis.scss';
 
 #corpo {
   display: flex;
@@ -44,10 +40,12 @@ $cor_bg_menu: rgb(99, 157, 223);
 
   #conteudo_esquerdo {
     background-color: rgb(235, 235, 235);
-    border-radius: $border_radius;
+    border-radius: $border_radius * 2;
+    display: flex;
+    flex-wrap: wrap;
     margin-right: $margin;
-    overflow: hidden;
-    padding: $margin;
+    overflow: scroll;
+    padding: 10px;
     width: 60%;
   }
 

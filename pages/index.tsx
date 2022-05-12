@@ -1,4 +1,5 @@
 import React from "react";
+import ProdutoCard from "../src/componentes/card/CardSimples";
 import Campo from "../src/componentes/fields/Campo";
 import Totalizador from "../src/componentes/screen/home/Totalizador";
 import styles from "../styles/Home.module.scss";
@@ -42,8 +43,10 @@ class Home extends React.Component {
         </header>
         <div id={styles.conteudo}>
           <div id={styles.conteudo_esquerdo}>
-            Agora... fazer os cards dos produtos... <br />
-            Criar um componente com a descriçao do grupo
+            <ProdutoCard informacao="Batata"></ProdutoCard>
+            <ProdutoCard informacao="Maçã"></ProdutoCard>
+            <ProdutoCard informacao="Cenoura"></ProdutoCard>
+            <ProdutoCard informacao="Uva"></ProdutoCard>
           </div>
           <div id={styles.conteudo_direito}>
             <div id={styles.input_dados}>
