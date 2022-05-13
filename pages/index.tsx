@@ -14,48 +14,27 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div id={styles.corpo}>
-        <header id={styles.cabecalho}>
-          <div id={styles.cabecalho_centro}>
-            <h1>{this.state.situacao_caixa}</h1>
-          </div>
-          <div id={styles.cabecalho_direito}>
-            <ul>
-              Cliente...
-              <li>{this.state.cliente_razaosocial}</li>
-            </ul>
-            <ul>
-              OPERADOR:...
-              <li>{this.state.operador}</li>
-            </ul>
-            <ul>
-              CAIXA:...
-              <li>{this.state.caixa}</li>
-              {/*<button
-                onClick={() =>
-                  this.setState({ situacao_caixa: "CAIXA FECHADO" })
-                }
-              >
-                Botão teste
-              </button>*/}
-            </ul>
-          </div>
+      <div id={styles.box_corpo}>
+        <header id={styles.box_cabecalho}>
+          <h1>{this.state.situacao_caixa}</h1>
         </header>
-        <div id={styles.conteudo}>
+        <div id={styles.box_conteudo}>
           <div id={styles.conteudo_esquerdo}>
-            <ProdutoCard informacao="Batata"></ProdutoCard>
-            <ProdutoCard informacao="Maçã"></ProdutoCard>
-            <ProdutoCard informacao="Cenoura"></ProdutoCard>
-            <ProdutoCard informacao="Uva"></ProdutoCard>
+            <div id={styles.barra_titulo}>
+              Item atual
+            </div>
+            <div id={styles.box_item_atual}>
+              <div id={styles.item_imagem}>
+                Imagem dos itens
+              </div>
+              <div id={styles.item_detalhe}>
+                Detalhes dos itens
+              </div>
+            </div>
           </div>
           <div id={styles.conteudo_direito}>
-            <div id={styles.input_dados}>
-              <Campo
-                name="edtCodBarra"
-                placeholder="Enconte o item pelo código, nome ou código de barras"
-              />
-            </div>
-            <div id={styles.grid_item}>
+            <div id={styles.box_grid_item}>
+              <div id={styles.barra_titulo}>Produtos / Serviços</div>
               <table id={styles.table_item}>
                 <thead>
                   <tr>
@@ -68,37 +47,13 @@ class Home extends React.Component {
                     <td>Pizza x10</td>
                     <td id={styles.td_preco}>R$15,99</td>
                   </tr>
-                  <tr id={styles.tr_item}>
-                    <td>Pizza x10</td>
-                    <td id={styles.td_preco}>R$15,99</td>
-                  </tr>
-                  <tr id={styles.tr_item}>
-                    <td>Pizza x10</td>
-                    <td id={styles.td_preco}>R$15,99</td>
-                  </tr>
-                  <tr id={styles.tr_item}>
-                    <td>Pizza x10</td>
-                    <td id={styles.td_preco}>R$15,99</td>
-                  </tr>
-                  <tr id={styles.tr_item}>
-                    <td>Pizza x10</td>
-                    <td id={styles.td_preco}>R$15,99</td>
-                  </tr>
-                  <tr id={styles.tr_item}>
-                    <td>Pizza x10</td>
-                    <td id={styles.td_preco}>R$15,99</td>
-                  </tr>
-                  <tr id={styles.tr_item}>
-                    <td>Pizza x10</td>
-                    <td id={styles.td_preco}>R$15,99</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
             <Totalizador
               conteudo={[
-                { titulo: "Desconto", total: "22,22" },
-                { titulo: "Total", total: "11,11" },
+                { titulo: "Desconto", total: "0,00" },
+                { titulo: "Total", total: "159,90" },
               ]}
             />
           </div>
