@@ -1,7 +1,8 @@
+import Image from "next/image";
 import React from "react";
-import ProdutoCard from "../src/componentes/card/CardSimples";
-import Campo from "../src/componentes/fields/Campo";
-import Totalizador from "../src/componentes/screen/home/Totalizador";
+import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
+import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
+import ConsumidorDetalhe from "../src/componentes/screen/home/ConsumidorDetalheHome";
 import styles from "../styles/Home.module.scss";
 
 class Home extends React.Component {
@@ -16,25 +17,22 @@ class Home extends React.Component {
     return (
       <div id={styles.box_corpo}>
         <header id={styles.box_cabecalho}>
-          <h1>{this.state.situacao_caixa}</h1>
+          <h4>{this.state.situacao_caixa}</h4>
         </header>
         <div id={styles.box_conteudo}>
           <div id={styles.conteudo_esquerdo}>
-            <div id={styles.barra_titulo}>
-              Item atual
-            </div>
+            <div className={styles.barra_titulo}>Detalhe do item</div>
             <div id={styles.box_item_atual}>
-              <div id={styles.item_imagem}>
-                Imagem dos itens
-              </div>
-              <div id={styles.item_detalhe}>
-                Detalhes dos itens
+              <div className={styles.item_atual}>Por a imagem aqui dentro</div>
+              <div className={styles.width_50_por_cento}>
+                <ProdutoDetalhe />
               </div>
             </div>
+            <ConsumidorDetalhe />
           </div>
           <div id={styles.conteudo_direito}>
+            <div className={styles.barra_titulo}>Produtos / Serviços</div>
             <div id={styles.box_grid_item}>
-              <div id={styles.barra_titulo}>Produtos / Serviços</div>
               <table id={styles.table_item}>
                 <thead>
                   <tr>
@@ -43,19 +41,14 @@ class Home extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr id={styles.tr_item}>
+                  <tr>
                     <td>Pizza x10</td>
                     <td id={styles.td_preco}>R$15,99</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <Totalizador
-              conteudo={[
-                { titulo: "Desconto", total: "0,00" },
-                { titulo: "Total", total: "159,90" },
-              ]}
-            />
+            <Totalizador total={30.45} />
           </div>
         </div>
       </div>

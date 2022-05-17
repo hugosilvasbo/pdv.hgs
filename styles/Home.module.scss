@@ -1,75 +1,57 @@
-@import 'variaveis.scss';
+@import "variaveis.scss";
 
 #box_corpo {
+  @extend .flex_column, .width_height_100_por_cento;
   background-color: rgb(243, 243, 243);
-  display: flex;
-  flex-direction: column;
   position: fixed;
-  width: 100%;
-  height: 100%;
 }
 
 #box_cabecalho {
-  align-items: center;
+  @extend .flex_item_center;
   background-color: $cor_bg_menu;
   color: white;
-  display: flex;
-  justify-content: center;
-  font-size: 14px;
-  height: $altura_cabecalho;
-  overflow: hidden;
-  width: 100%;
 }
 
 #box_conteudo {
-  display: flex;
-  height: calc(100% - $altura_cabecalho);
+  @extend .flex_row;
+  height: 100%;
   padding: $margin;
 
   #conteudo_esquerdo {
-    background-color: white;
-    border-radius: $border_radius;
-    box-shadow: 0 0 6px rgb(182, 182, 182);
-    display: flex;
-    flex-direction: column;
+    @extend .flex_column, .border_radius_bottom_left_right;
     margin-right: $margin;
     width: 60%;
 
     #box_item_atual {
-      display: flex;
-      height: 100%;
+      @extend .flex_row, .width_height_100_por_cento, .border_radius_bottom_left_right;
+      box-shadow: 0 0 6px rgb(182, 182, 182);
+      background-color: white;
+      overflow-y: scroll;
       padding: $margin;
-      width: 100%;
 
-      #item_imagem {
-        background-color: red;;
-        width: 30%;
-      }
-
-      #item_detalhe {
-        background-color: aqua;
-        width: 70%;
+      .item_atual {
+        @extend .flex_item_center;
+        flex-wrap: wrap;
+        width: 50%;
       }
     }
   }
 
   #conteudo_direito {
-    background-color: white;
+    @extend .flex_column, .border_radius_bottom_left_right;
     box-shadow: 0 0 6px rgb(182, 182, 182);
-    display: flex;
-    flex-direction: column;
+    background-color: white;
     width: 40%;
 
     #box_grid_item {
       border: 1px solid rgb(202, 202, 202);
-      border-radius: $border_radius;
       color: white;
       flex-grow: 1;
       overflow-y: scroll;
+      padding: $margin;
 
       #table_item {
         color: rgb(27, 27, 27);
-        padding: $margin;
         width: 100%;
 
         thead {
@@ -78,12 +60,8 @@
         }
 
         tbody {
-          #tr_item {
-            border-bottom: 2px solid black;
-          }
-
           #td_preco {
-            display: flex;
+            @extend .flex_row;
             justify-content: flex-end;
           }
 
@@ -96,10 +74,4 @@
   }
 }
 
-#barra_titulo {
-  padding: 10px;
-  background-color: $cor_bg_menu;
-  color: white;
-  font-size: 12px;
-  width: 100%;
-}
+

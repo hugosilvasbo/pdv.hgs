@@ -1,8 +1,54 @@
 $altura_cabecalho: 50px;
 
-$border_radius: 5px;
+$border_radius: 10px;
 
 $cor_titulos: #868686;
 $cor_bg_menu: rgb(99, 157, 223);
 
-$margin: 10px;
+$margin: 20px;
+
+// propriedades gerais
+.barra_titulo {
+  padding: 10px;
+  background-color: $cor_bg_menu;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+}
+
+.width_height_100_por_cento {
+  height: 100%;
+  width: 100%;
+}
+
+.width_50_por_cento {
+  width: 50%;
+}
+
+// propriedades radius
+.border_radius_bottom_left_right {
+  border-end-end-radius: $border_radius;
+  border-bottom-left-radius: $border_radius;
+}
+
+.border_radius_top_left_right {
+  border-top-left-radius: $border_radius;
+  border-top-right-radius: $border_radius;
+}
+
+// propriedades flex:
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex_item_center {
+  @extend .flex_row;
+  align-items: center;
+  justify-content: center;
+}
