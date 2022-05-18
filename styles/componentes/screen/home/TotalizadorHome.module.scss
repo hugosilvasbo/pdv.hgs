@@ -1,0 +1,17 @@
+@import "../../../variaveis.scss";
+
+#box_total {
+  @extend .border_radius_bottom_left_right;
+  background-color: $cor_bg_menu;
+  color: white;
+  padding: $margin;
+
+  #total {
+    @extend .flex_row;
+    font-size: 22px;
+    font-weight: 500;
+    justify-content: space-between;
+  }
+}
+
+

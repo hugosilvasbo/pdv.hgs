@@ -1,0 +1,11 @@
+@import "../../../variaveis.scss";
+
+#box_detalhe_pedido {
+    @extend .flex_column, .border_radius_bottom_left_right;
+    box-shadow: 0 0 6px rgb(182, 182, 182);
+    margin-top: 20px;
+
+    #infos {
+        padding: 10px;
+    }
+}
