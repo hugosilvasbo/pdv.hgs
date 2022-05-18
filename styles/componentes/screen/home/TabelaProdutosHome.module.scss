@@ -1,0 +1,30 @@
+@import "../../../variaveis.scss";
+
+#box_grid_item {
+  border: 1px solid rgb(202, 202, 202);
+  color: white;
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: $margin;
+
+  #table_item {
+    color: rgb(27, 27, 27);
+    width: 100%;
+
+    thead {
+      text-align: center;
+      font-weight: 500;
+    }
+
+    tbody {
+      #td_preco {
+        @extend .flex_row;
+        justify-content: flex-end;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgb(224, 224, 224);
+      }
+    }
+  }
+}
