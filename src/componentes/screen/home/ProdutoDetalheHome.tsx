@@ -39,21 +39,13 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
           </div>
           <div className="row">
             <div className="col">
-              <Campo titulo="Quantidade" nomeDoCampo="edtQuantidade" />
-            </div>
-            <div className="col">
-              <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
               <Campo titulo="Desconto" nomeDoCampo="edtDescontoTotal" />
             </div>
             <div className="col">
               <Campo titulo="Estoque atual" nomeDoCampo="edtEstoqueAtual" />
             </div>
           </div>
-          <input type="submit" value="Adicionar" />
+          <input type="submit" value="Botão teste adicionar" />
         </form>
       </>
     );
