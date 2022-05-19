@@ -9,18 +9,24 @@ import { IProdutoDetalheHome } from '../src/modelagem/interfaces/IProdutoDetalhe
 class Home extends React.Component {
   state = {
     caixa: "CAIXA ABERTO",
-    item_digitacao: [],
+    item: [],
+    total: 0
   };
 
-  produtoDetalheCallBack = (child: IProdutoDetalheHome) => {
-    this.setState({ item_digitacao: child });
+  produtoDetalheCallBack = (produto: IProdutoDetalheHome) => {
+    // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
+    this.setState({ item: [...this.state.item, produto] });
+
+    console.log("Por numa classe... para vendas")
+    let total = (produto?.preco_unitario ? produto?.preco_unitario : 0) * (produto?.quantidade ? produto.quantidade : 0);
+    this.setState({ total: this.state.total += total })
   };
 
   render() {
     return (
       <div id={styles.box_corpo}>
         <header id={styles.box_cabecalho}>
-          <h4>{this.state.caixa}</h4>
+          <h1>{this.state.caixa}</h1>
         </header>
         <div id={styles.box_conteudo}>
           <div id={styles.conteudo_esquerdo}>
@@ -35,8 +41,8 @@ class Home extends React.Component {
           </div>
           <div id={styles.conteudo_direito}>
             <div className={styles.barra_titulo}>Produtos / Serviços</div>
-            <TabelaProdutos item_digitado = {this.state.item_digitacao} />
-            <Totalizador total={30.45} />
+            <TabelaProdutos itens={this.state.item} />
+            <Totalizador total={this.state.total} />
           </div>
         </div>
       </div>

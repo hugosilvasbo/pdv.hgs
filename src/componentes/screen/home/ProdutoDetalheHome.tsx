@@ -1,6 +1,5 @@
 import React from "react";
 import Campo from "../../fields/Campo";
-import "bootstrap/dist/css/bootstrap.css";
 import { IProdutoDetalheHome } from '../../../modelagem/interfaces/IProdutoDetalheHome';
 
 export class ProdutoDetalheHome extends React.Component<any, {}> {
@@ -9,13 +8,12 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
     const itens: IProdutoDetalheHome = {
       codigo_produto: event.target.edtCodigoProduto.value,
       preco_unitario: event.target.edtPrecoUnitario.value,
-      estoque_atual: event.target.edtEstoqueAtual.value,
       quantidade: event.target.edtQuantidade.value,
       desconto_total: event.target.edtDescontoTotal.value,
+      estoque_atual: event.target.edtEstoqueAtual.value,
     };
 
     this.props.parentCallBack(itens);
-
     event.preventDefault();
   };
 
@@ -26,22 +24,33 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
           <div className="row">
             <div className="col">
               <Campo
-                title="Selecione o produto (Código de barras ou descrição)"
-                name="edtCodigoProduto"
+                titulo="Selecione o produto (Código de barras ou descrição)"
+                nomeDoCampo="edtCodigoProduto"
               ></Campo>
             </div>
-            <div className="w-100"></div>
+          </div>
+          <div className="row">
             <div className="col">
-              <Campo title="Preço unitário" name="edtPrecoUnitario"></Campo>
+              <Campo titulo="Quantidade" nomeDoCampo="edtQuantidade" />
             </div>
             <div className="col">
-              <Campo title="Estoque atual" name="edtEstoqueAtual"></Campo>
+              <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <Campo titulo="Quantidade" nomeDoCampo="edtQuantidade" />
             </div>
             <div className="col">
-              <Campo title="Quantidade" name="edtQuantidade"></Campo>
+              <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <Campo titulo="Desconto" nomeDoCampo="edtDescontoTotal" />
             </div>
             <div className="col">
-              <Campo title="Desconto total" name="edtDescontoTotal"></Campo>
+              <Campo titulo="Estoque atual" nomeDoCampo="edtEstoqueAtual" />
             </div>
           </div>
           <input type="submit" value="Adicionar" />

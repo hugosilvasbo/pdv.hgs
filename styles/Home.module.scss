@@ -1,4 +1,5 @@
 @import "variaveis.scss";
+$height_box_cabecalho: 70px;
 
 #box_corpo {
   @extend .flex_column, .width_height_100_por_cento;
@@ -10,22 +11,25 @@
   @extend .flex_item_center;
   background-color: $cor_bg_menu;
   color: white;
+  height: $height_box_cabecalho;
 }
 
 #box_conteudo {
   @extend .flex_row;
-  height: 100%;
+  height: calc(100% - $height_box_cabecalho); // height do box_cabecalho.
   padding: $margin;
 
   #conteudo_esquerdo {
     @extend .flex_column, .border_radius_bottom_left_right;
     margin-right: $margin;
     width: 60%;
+    height: 100%;
 
     #box_item_atual {
       @extend .flex_row, .width_height_100_por_cento, .border_radius_bottom_left_right;
       box-shadow: 0 0 6px rgb(182, 182, 182);
       background-color: white;
+      height: 100%;
       overflow-y: scroll;
       padding: $margin;
 

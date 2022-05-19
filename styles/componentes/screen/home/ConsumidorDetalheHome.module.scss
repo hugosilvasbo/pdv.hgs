@@ -3,7 +3,8 @@
 #box_detalhe_pedido {
     @extend .flex_column, .border_radius_bottom_left_right;
     box-shadow: 0 0 6px rgb(182, 182, 182);
-    margin-top: 20px;
+    margin-top: 10px;
+    height: 30%;
 
     #infos {
         padding: 10px;
