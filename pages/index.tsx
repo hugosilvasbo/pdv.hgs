@@ -4,22 +4,24 @@ import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
 import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import TabelaProdutos from "../src/componentes/screen/home/TabelaProdutosHome";
 import styles from "../styles/Home.module.scss";
-import { IProdutoDetalheHome } from '../src/modelagem/interfaces/IProdutoDetalheHome';
+import { IProdutoDetalheHome } from "../src/db/modelagem/interfaces/IProdutoDetalheHome";
 
 class Home extends React.Component {
   state = {
     caixa: "CAIXA ABERTO",
     item: [],
-    total: 0
+    total: 0,
   };
 
   produtoDetalheCallBack = (produto: IProdutoDetalheHome) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
     this.setState({ item: [...this.state.item, produto] });
 
-    console.log("Por numa classe... para vendas")
-    let total = (produto?.preco_unitario ? produto?.preco_unitario : 0) * (produto?.quantidade ? produto.quantidade : 0);
-    this.setState({ total: this.state.total += total })
+    console.log("Por numa classe... para vendas");
+    let total =
+      (produto?.preco_unitario ? produto?.preco_unitario : 0) *
+      (produto?.quantidade ? produto.quantidade : 0);
+    this.setState({ total: (this.state.total += total) });
   };
 
   render() {
@@ -33,7 +35,7 @@ class Home extends React.Component {
             <div className={styles.barra_titulo}>Detalhe do item</div>
             <div id={styles.box_item_atual}>
               <div className={styles.item_atual}>Por a imagem aqui dentro</div>
-              <div className={styles.width_50_por_cento}>
+              <div className={styles.item_atual}>
                 <ProdutoDetalhe parentCallBack={this.produtoDetalheCallBack} />
               </div>
             </div>

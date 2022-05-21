@@ -1,16 +1,23 @@
 import React from "react";
+import styles from "../../../styles/componentes/campo/Campo.module.scss";
 
 interface ICampo {
-  titulo: string,
-  nomeDoCampo: string,
+  titulo: string;
+  nomeDoCampo: string;
 }
 
 export default class Campo extends React.Component<ICampo, {}> {
   render() {
     return (
       <>
-        <label>{this.props.titulo}</label>
-        <input name={this.props.nomeDoCampo} type="text" className="form-control" id="usr"></input>
+        <div className={styles.flex_column}>
+          <label className={styles.titulo}>{this.props.titulo}</label>
+          <input
+            className={styles.campo}
+            name={this.props.nomeDoCampo}
+            type="text"
+          ></input>
+        </div>
       </>
     );
   }

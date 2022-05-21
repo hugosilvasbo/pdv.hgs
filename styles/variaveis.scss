@@ -3,6 +3,8 @@ $border_radius: 10px;
 $cor_titulos: #868686;
 $cor_bg_menu: rgb(99, 157, 223);
 
+$font_size_titulo: 14px;
+
 $margin: 10px;
 
 // propriedades gerais
@@ -10,7 +12,7 @@ $margin: 10px;
   padding: 10px;
   background-color: $cor_bg_menu;
   color: white;
-  font-size: 14px;
+  font-size: $font_size_titulo;
   width: 100%;
 }
 

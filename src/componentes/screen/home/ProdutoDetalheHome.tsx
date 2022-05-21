@@ -1,10 +1,10 @@
 import React from "react";
 import Campo from "../../fields/Campo";
-import { IProdutoDetalheHome } from '../../../modelagem/interfaces/IProdutoDetalheHome';
+import { IProdutoDetalheHome } from "../../../db/modelagem/interfaces/IProdutoDetalheHome";
 
 export class ProdutoDetalheHome extends React.Component<any, {}> {
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
-  submitItem = (event: any) => {
+  onSubmit = (event: any) => {
     const itens: IProdutoDetalheHome = {
       codigo_produto: event.target.edtCodigoProduto.value,
       preco_unitario: event.target.edtPrecoUnitario.value,
@@ -17,16 +17,25 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
     event.preventDefault();
   };
 
+  onClickBuscarProduto = () => {
+    alert("Opa")
+  };
+
   render() {
     return (
       <>
-        <form onSubmit={this.submitItem}>
+        <form onSubmit={this.onSubmit}>
           <div className="row">
             <div className="col">
               <Campo
                 titulo="Selecione o produto (Código de barras ou descrição)"
                 nomeDoCampo="edtCodigoProduto"
-              ></Campo>
+              />
+            </div>
+            <div className="col">
+              <button onClick={this.onClickBuscarProduto}>
+                Buscar produto teste
+              </button>
             </div>
           </div>
           <div className="row">
@@ -36,8 +45,6 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
             <div className="col">
               <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" />
             </div>
-          </div>
-          <div className="row">
             <div className="col">
               <Campo titulo="Desconto" nomeDoCampo="edtDescontoTotal" />
             </div>

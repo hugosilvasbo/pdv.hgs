@@ -1,17 +1,12 @@
-#conteudo {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+@import "../../variaveis.scss";
 
-  #titulo {
-      color: #575757;
-      font-size: 1
-  }
+.titulo {
+  color: #575757;
+  font-size: $font_size_titulo;
+}
 
-  #campo {
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px rgb(207, 207, 207);
-    padding: 8px; 
-  }
+.campo {
+  border-style: none;
+  border-bottom: 1px solid #b8b8b8;
+  padding: 5px;
 }
