@@ -40,8 +40,12 @@ const Modal = (props: IModal) => {
           </div>
           <div className="modal-body">{props.children}</div>
           <div className="modal-footer">
-            <button onClick={props.onClose} className="button">
-              Close
+            <button
+              onClick={props.onClose}
+              type="button"
+              className="btn btn-danger"
+            >
+              Fechar
             </button>
           </div>
         </div>
