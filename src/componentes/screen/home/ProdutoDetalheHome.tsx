@@ -1,8 +1,13 @@
 import React from "react";
 import Campo from "../../fields/Campo";
 import { IProdutoDetalheHome } from "../../../db/modelagem/interfaces/IProdutoDetalheHome";
+import MeuModal from "../../modal/Modal";
 
 export class ProdutoDetalheHome extends React.Component<any, {}> {
+  state = {
+    showModal: false,
+  };
+
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
   onSubmit = (event: any) => {
     const itens: IProdutoDetalheHome = {
@@ -17,10 +22,6 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
     event.preventDefault();
   };
 
-  onClickBuscarProduto = () => {
-    alert("Opa")
-  };
-
   render() {
     return (
       <>
@@ -33,7 +34,17 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
               />
             </div>
             <div className="col">
-              <button onClick={this.onClickBuscarProduto}>
+              <MeuModal
+                onClose={() => this.setState({ showModal: false })}
+                showModal={this.state.showModal}
+                title={"Busca de produtos"}
+              >
+                Batata...
+              </MeuModal>
+              <button
+                type="button"
+                onClick={() => this.setState({ showModal: true })}
+              >
                 Buscar produto teste
               </button>
             </div>

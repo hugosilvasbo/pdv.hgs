@@ -1,21 +1,22 @@
 import React from "react";
 import ConsumidorDetalhe from "../src/componentes/screen/home/ConsumidorDetalheHome";
 import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
-import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import TabelaProdutos from "../src/componentes/screen/home/TabelaProdutosHome";
-import styles from "../styles/Home.module.scss";
+import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import { IProdutoDetalheHome } from "../src/db/modelagem/interfaces/IProdutoDetalheHome";
+import styles from "../styles/Home.module.scss";
 
 class Home extends React.Component {
   state = {
     caixa: "CAIXA ABERTO",
-    item: [],
+    itens: [],
     total: 0,
   };
 
   produtoDetalheCallBack = (produto: IProdutoDetalheHome) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
-    this.setState({ item: [...this.state.item, produto] });
+    produto.sequencia = this.state.itens.length + 1;
+    this.setState({ itens: [...this.state.itens, produto] });
 
     console.log("Por numa classe... para vendas");
     let total =
@@ -43,7 +44,7 @@ class Home extends React.Component {
           </div>
           <div id={styles.conteudo_direito}>
             <div className={styles.barra_titulo}>Produtos / Serviços</div>
-            <TabelaProdutos itens={this.state.item} />
+            <TabelaProdutos itens={this.state.itens} />
             <Totalizador total={this.state.total} />
           </div>
         </div>

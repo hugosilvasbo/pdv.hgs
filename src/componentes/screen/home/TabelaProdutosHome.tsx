@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../../../../styles/componentes/screen/home/TabelaProdutosHome.module.scss";
-import { IProdutoDetalheHome } from "../../../modelagem/interfaces/IProdutoDetalheHome";
+import { IProdutoDetalheHome } from "../../../db/modelagem/interfaces/IProdutoDetalheHome";
 
 export default class TabelaProdutosHome extends React.Component<any, {}> {
   render() {
@@ -18,8 +18,8 @@ export default class TabelaProdutosHome extends React.Component<any, {}> {
             </thead>
             <tbody>
               {this.props.itens.map((product: IProdutoDetalheHome) => (
-                <tr key={1}>
-                  <td>{product.codigo_produto}</td>
+                <tr key={product.sequencia}>
+                  <td>{product.sequencia}</td>
                   <td>{product.descricao}</td>
                   <td>{product.quantidade}</td>
                   <td>{product.total}</td>

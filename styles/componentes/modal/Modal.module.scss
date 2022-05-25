@@ -1,0 +1,35 @@
+$border: 1px solid #eee;
+$padding: 10px;
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+
+  .modal-content {
+    width: 500px;
+    background-color: #fff;
+  }
+
+  .modal-header,
+  .modal-footer {
+    padding: $padding;
+  }
+
+  .modal-title {
+    margin: 0;
+  }
+
+  .modal-body {
+    padding: $padding;
+    border-top: $border;
+    border-bottom: $border;
+  }
+}
