@@ -34,19 +34,32 @@ const Modal = (props: IModal) => {
   return (
     <>
       <div className={styles.modal} onClick={props.onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h4 className="modal-title">{props.title}</h4>
+        <div
+          className={styles.modal_content}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className={styles.modal_header}>
+            <h4 className={styles.modal_title}>{props.title}</h4>
           </div>
-          <div className="modal-body">{props.children}</div>
-          <div className="modal-footer">
-            <button
-              onClick={props.onClose}
-              type="button"
-              className="btn btn-danger"
-            >
-              Fechar
-            </button>
+          <div className={styles.modal_body}>{props.children}</div>
+          <div className={styles.modal_footer}>
+            <div className="btn-toolbar">
+              <button
+                type="button"
+                id="btnSubmit"
+                className="btn btn-primary btn-sm me-2"
+              >
+                Selecionar
+              </button>
+              <button
+                type="button"
+                id="btnCancel"
+                className="btn btn-danger btn-sm"
+                onClick={props.onClose}
+              >
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
       </div>

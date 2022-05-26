@@ -1,35 +1,48 @@
+@import "../../variaveis.scss";
+
 $border: 1px solid #eee;
+$height_header: 40px;
+$height_footer: 40px;
 $padding: 10px;
 
 .modal {
+  @extend .flex_item_center, .trbl_0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  justify-content: center;
 
-  .modal-content {
-    width: 500px;
+  .modal_content {
     background-color: #fff;
-  }
-
-  .modal-header,
-  .modal-footer {
+    border-radius: 10px;
     padding: $padding;
-  }
+    height: 100%;
+    width: 100%;
 
-  .modal-title {
-    margin: 0;
-  }
+    .modal_header {
+      @extend .flex_item_center;
+      height: $height_header;
+      border-bottom: $border;
 
-  .modal-body {
-    padding: $padding;
-    border-top: $border;
-    border-bottom: $border;
+      .modal_title {
+        font-size: 18px;
+      }
+    }
+
+    .modal_body {
+      padding: $padding;
+      margin-top: 5px;
+      overflow-y: scroll;
+      height: calc(100% - $height_footer - $height_header - 15px);
+      border-bottom: $border;
+    }
+
+    .modal_footer {
+      @extend .flex_item_center;
+      justify-content: flex-end;
+      height: $height_footer;
+      bottom: 0;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
   }
 }

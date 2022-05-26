@@ -7,7 +7,7 @@ export default class TabelaProdutosHome extends React.Component<any, {}> {
     return (
       <>
         <div id={style.box_grid_item}>
-          <table className="table table-sm">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col">#</th>

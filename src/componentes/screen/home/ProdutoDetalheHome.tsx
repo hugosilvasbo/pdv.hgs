@@ -1,7 +1,7 @@
 import React from "react";
 import Campo from "../../fields/Campo";
 import { IProdutoDetalheHome } from "../../../db/modelagem/interfaces/IProdutoDetalheHome";
-import MeuModal from "../../modal/Modal";
+import ModalProduto from "../../modal/ModalProduto";
 
 export class ProdutoDetalheHome extends React.Component<any, {}> {
   state = {
@@ -34,13 +34,11 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
               />
             </div>
             <div className="col">
-              <MeuModal
+              <ModalProduto
                 onClose={() => this.setState({ showModal: false })}
                 showModal={this.state.showModal}
                 title={"Busca de produtos"}
-              >
-                Batata...
-              </MeuModal>
+              />
               <button
                 type="button"
                 onClick={() => this.setState({ showModal: true })}
