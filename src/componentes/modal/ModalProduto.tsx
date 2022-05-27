@@ -23,12 +23,11 @@ export default class ModalProduto extends React.Component<IProps, {}> {
     this.setState({ produtos: api });
   }
 
-  async componentDidMount() {
-    if (!this.props.showModal) {
-      return null;
+  async componentWillReceiveProps(nextProps: any) {
+    console.log({ nextprops: nextProps.showModal })
+    if (nextProps.showModal) {
+      await this.buscarProdutosDB();
     }
-
-    await this.buscarProdutosDB();
   }
 
   render() {
