@@ -5,7 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  let query = knex("produto").select("*");
+  let query = knex("item").select("*");
   let resultado = await query;
 
   if (!resultado) {
