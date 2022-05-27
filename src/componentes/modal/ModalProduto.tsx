@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 
 interface IProps {
@@ -7,197 +8,49 @@ interface IProps {
   title: string;
 }
 
-const ModalProduto = (props: IProps) => {
-  return (
-    <Modal
-      title="Consulta de produtos"
-      onClose={props.onClose}
-      showModal={props.showModal}
-    >
-      <table className="table table-striped ">
-        <thead>
-          <tr>
-            <th scope="col">Cód.</th>
-            <th scope="col">Descrição</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-          <tr key={123}>
-            <td>1</td>
-            <td>Batata Doce</td>
-          </tr>
-        </tbody>
-      </table>
-    </Modal>
-  );
-};
+export default class ModalProduto extends React.Component<IProps, {}> {
+  state = {
+    produtos: [],
+  };
 
-export default ModalProduto;
+  async buscarProdutos() {
+    let api = await axios
+      .get("/api/produto/produto_busca")
+      .then(function (produtos: any) {
+        return produtos.data.produto;
+      });
+
+    this.setState({ produtos: api });
+  }
+
+  render() {
+    if (this.props.showModal) {
+      this.buscarProdutos();
+    }
+
+    return (
+      <Modal
+        title="Consulta de produtos"
+        onClose={this.props.onClose}
+        showModal={this.props.showModal}
+      >
+        <table className="table table-striped ">
+          <thead>
+            <tr>
+              <th scope="col">Cód.</th>
+              <th scope="col">Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.produtos.map((produto: any) => (
+              <tr key={produto.id}>
+                <td>{produto.id}</td>
+                <td>{produto.descricao}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Modal>
+    );
+  }
+}

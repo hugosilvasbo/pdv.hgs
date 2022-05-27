@@ -25,6 +25,11 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
   render() {
     return (
       <>
+        <ModalProduto
+          onClose={() => this.setState({ showModal: false })}
+          showModal={this.state.showModal}
+          title={"Busca de produtos"}
+        />
         <form onSubmit={this.onSubmit}>
           <div className="row">
             <div className="col">
@@ -34,11 +39,6 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
               />
             </div>
             <div className="col">
-              <ModalProduto
-                onClose={() => this.setState({ showModal: false })}
-                showModal={this.state.showModal}
-                title={"Busca de produtos"}
-              />
               <button
                 type="button"
                 onClick={() => this.setState({ showModal: true })}
