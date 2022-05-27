@@ -24,9 +24,11 @@ export default class ModalProduto extends React.Component<IProps, {}> {
   }
 
   render() {
-    if (this.props.showModal) {
-      this.buscarProdutos();
+    if (!this.props.showModal) {
+      return null;
     }
+
+    this.buscarProdutos();
 
     return (
       <Modal
