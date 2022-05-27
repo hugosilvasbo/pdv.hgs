@@ -13,7 +13,7 @@ export default class ModalProduto extends React.Component<IProps, {}> {
     produtos: [],
   };
 
-  async buscarProdutos() {
+  async buscarProdutosDB() {
     let api = await axios
       .get("/api/produto/produto_busca")
       .then(function (produtos: any) {
@@ -23,13 +23,15 @@ export default class ModalProduto extends React.Component<IProps, {}> {
     this.setState({ produtos: api });
   }
 
-  render() {
+  async componentDidMount() {
     if (!this.props.showModal) {
       return null;
     }
 
-    this.buscarProdutos();
+    await this.buscarProdutosDB();
+  }
 
+  render() {
     return (
       <Modal
         title="Consulta de produtos"
