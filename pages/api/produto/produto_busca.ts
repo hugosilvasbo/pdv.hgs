@@ -14,7 +14,7 @@ export default async function handler(
     });
   } else {
     res.status(200).json({
-      produto: resultado,
+      itens: resultado,
     });
   }
 }

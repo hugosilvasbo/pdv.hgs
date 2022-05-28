@@ -13,7 +13,7 @@ class Home extends React.Component {
     total: 0,
   };
 
-  produtoDetalheCallBack = (produto: IProdutoDetalheHome) => {
+  itemDetalheCallBack = (produto: IProdutoDetalheHome) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
     produto.sequencia = this.state.itens.length + 1;
     this.setState({ itens: [...this.state.itens, produto] });
@@ -24,6 +24,8 @@ class Home extends React.Component {
       (produto?.quantidade ? produto.quantidade : 0);
     this.setState({ total: (this.state.total += total) });
   };
+
+
 
   render() {
     return (
@@ -37,7 +39,7 @@ class Home extends React.Component {
             <div id={styles.box_item_atual}>
               <div className={styles.item_atual}>Por a imagem aqui dentro</div>
               <div className={styles.item_atual}>
-                <ProdutoDetalhe parentCallBack={this.produtoDetalheCallBack} />
+                <ProdutoDetalhe parentCallBack={this.itemDetalheCallBack} />
               </div>
             </div>
             <ConsumidorDetalhe />

@@ -1,5 +1,5 @@
 export interface IProdutoModelagem {
-    id: number;
+    id?: number;
     descricao?: string|"";
   }
   

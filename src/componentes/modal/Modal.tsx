@@ -1,17 +1,11 @@
 import React, { useEffect } from "react";
 import styles from "../../../styles/componentes/modal/Modal.module.scss";
+import { IModal } from "../../interfaces/componentes/modal/IModal";
 
 /**
  * Componente Modal.
  * Ex: Trabalhamos com callback na chama do props.onClose.
  */
-
-interface IModal {
-  showModal: boolean;
-  onClose: any;
-  title: string;
-  children: any;
-}
 
 const Modal = (props: IModal) => {
   if (!props.showModal) {

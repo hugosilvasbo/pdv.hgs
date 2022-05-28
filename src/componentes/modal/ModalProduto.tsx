@@ -1,33 +1,31 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Modal from "./Modal";
+import { IModal } from "../../interfaces/componentes/modal/IModal";
 
-interface IProps {
-  onClose: any;
-  showModal: any;
-  title: string;
-}
-
-export default class ModalProduto extends React.Component<IProps, {}> {
+export default class ModalProduto extends React.Component<IModal, {}> {
   state = {
-    produtos: [],
+    itens: [],
+    lastItemClick: -1,
   };
 
-  async buscarProdutosDB() {
-    let api = await axios
-      .get("/api/produto/produto_busca")
-      .then(function (produtos: any) {
-        return produtos.data.produto;
-      });
+  async componentDidUpdate(nextProps: IModal) {
+    if (this.props.showModal != nextProps.showModal) {
+      let api = await axios
+        .get("/api/produto/produto_busca")
+        .then(function (it: any) {
+          return it.data.itens;
+        });
 
-    this.setState({ produtos: api });
+      this.setState({ itens: api });
+    }
   }
 
-  async componentWillReceiveProps(nextProps: any) {
-    console.log({ nextprops: nextProps.showModal })
-    if (nextProps.showModal) {
-      await this.buscarProdutosDB();
-    }
+  clickItemGrid(index: number) {
+    let itemSelecionado = this.state.itens[index];
+    alert(
+      "bom... pegamos o item clicado! :D agora tem que ver como voltar isso pra tela... possivelmente via props"
+    );
   }
 
   render() {
@@ -45,10 +43,10 @@ export default class ModalProduto extends React.Component<IProps, {}> {
             </tr>
           </thead>
           <tbody>
-            {this.state.produtos.map((produto: any) => (
-              <tr key={produto.id}>
-                <td>{produto.id}</td>
-                <td>{produto.descricao}</td>
+            {this.state.itens.map((it: any, index: number) => (
+              <tr key={index} onClick={() => this.clickItemGrid(index)}>
+                <td>{it.id}</td>
+                <td>{it.descricao}</td>
               </tr>
             ))}
           </tbody>
