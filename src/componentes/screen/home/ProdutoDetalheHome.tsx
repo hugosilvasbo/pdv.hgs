@@ -3,7 +3,11 @@ import Campo from "../../fields/Campo";
 import { IItemPedido } from "../../../interfaces/tables/IItemPedido";
 import ModalProduto from "../../modal/ModalProduto";
 
-export class ProdutoDetalheHome extends React.Component<any, {}> {
+interface IProdutoDetalheHome {
+  parentCallBack: any
+}
+
+export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}> {
   state = {
     showModal: false,
   };

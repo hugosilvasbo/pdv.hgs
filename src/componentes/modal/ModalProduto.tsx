@@ -5,8 +5,7 @@ import { IModal } from "../../interfaces/componentes/modal/IModal";
 
 export default class ModalProduto extends React.Component<IModal, {}> {
   state = {
-    itens: [],
-    lastItemClick: -1,
+    itens: []
   };
 
   async componentDidUpdate(nextProps: IModal) {
@@ -23,9 +22,8 @@ export default class ModalProduto extends React.Component<IModal, {}> {
 
   clickItemGrid(index: number) {
     let itemSelecionado = this.state.itens[index];
-    alert(
-      "bom... pegamos o item clicado! :D agora tem que ver como voltar isso pra tela... possivelmente via props"
-    );
+    
+    
   }
 
   render() {
