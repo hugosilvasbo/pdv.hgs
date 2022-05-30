@@ -4,6 +4,7 @@ import styles from "../../../styles/componentes/campo/Campo.module.scss";
 interface ICampo {
   titulo: string;
   nomeDoCampo: string;
+  conteudoPadrao?: any;
 }
 
 export default class Campo extends React.Component<ICampo, {}> {
@@ -16,6 +17,7 @@ export default class Campo extends React.Component<ICampo, {}> {
             className={styles.campo}
             name={this.props.nomeDoCampo}
             type="text"
+            defaultValue={this.props.conteudoPadrao}
           ></input>
         </div>
       </>

@@ -9,22 +9,20 @@ import styles from "../styles/Home.module.scss";
 class Home extends React.Component {
   state = {
     caixa: "CAIXA ABERTO",
-    itens: [],
+    itens: [] as IItemPedido[],
     total: 0,
   };
 
-  itemDetalheCallBack = (item: IItemPedido) => {
+  produtoDetalheCallBack = (it: IItemPedido) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
-    item.sequencia = this.state.itens.length + 1;
-    this.setState({ itens: [...this.state.itens, item] });
+    let subtotal = (it.item.preco_unitario ? it.item.preco_unitario : 0) * (it.quantidade ? it.quantidade : 0);
 
-    let total =
-      (item?.preco_unitario ? item?.preco_unitario : 0) *
-      (item?.quantidade ? item.quantidade : 0);
-    this.setState({ total: (this.state.total += total) });
+    it.sequencia = this.state.itens.length + 1;
+    it.subtotal = subtotal;
+
+    this.setState({ itens: [...this.state.itens, it] });
+    this.setState({ total: (this.state.total += subtotal) });
   };
-
-
 
   render() {
     return (
@@ -38,7 +36,7 @@ class Home extends React.Component {
             <div id={styles.box_item_atual}>
               <div className={styles.item_atual}>Por a imagem aqui dentro</div>
               <div className={styles.item_atual}>
-                <ProdutoDetalhe parentCallBack={this.itemDetalheCallBack} />
+                <ProdutoDetalhe parentCallBack={this.produtoDetalheCallBack} />
               </div>
             </div>
             <ConsumidorDetalhe />

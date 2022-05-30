@@ -2,29 +2,44 @@ import React from "react";
 import Campo from "../../fields/Campo";
 import { IItemPedido } from "../../../interfaces/tables/IItemPedido";
 import ModalProduto from "../../modal/ModalProduto";
+import { IItem } from "../../../interfaces/tables/IItem";
 
-interface IProdutoDetalheHome {
-  parentCallBack: any
-}
-
-export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}> {
+export class ProdutoDetalheHome extends React.Component<any, {}> {
   state = {
     showModal: false,
+    item_pedido: null as IItemPedido | null,
   };
 
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
   onSubmit = (event: any) => {
     const itens: IItemPedido = {
-      codigo_produto: event.target.edtCodigoProduto.value,
-      preco_unitario: event.target.edtPrecoUnitario.value,
       quantidade: event.target.edtQuantidade.value,
       desconto_total: event.target.edtDescontoTotal.value,
-      estoque_atual: event.target.edtEstoqueAtual.value,
+
+      item: {
+        id: event.target.edtCodigoProduto.value,
+        descricao: this.state.item_pedido?.item.descricao,
+        estoque_atual: event.target.edtEstoqueAtual.value,
+        preco_unitario: event.target.edtPrecoUnitario.value,
+      }
     };
 
     this.props.parentCallBack(itens);
     event.preventDefault();
   };
+
+  callBackItemSelecionado = (it: IItem) => {
+    this.setState({
+      item_pedido: {
+        item: {
+          id: it.id,
+          descricao: it.descricao,
+          preco_unitario: it.preco_unitario,
+          estoque_atual: it.estoque_atual
+        }
+      }
+    })
+  }
 
   render() {
     return (
@@ -33,6 +48,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           onClose={() => this.setState({ showModal: false })}
           showModal={this.state.showModal}
           title={"Busca de produtos"}
+          modalItemCallback={this.callBackItemSelecionado}
         />
         <form onSubmit={this.onSubmit}>
           <div className="row">
@@ -40,6 +56,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
               <Campo
                 titulo="Selecione o produto (Código de barras ou descrição)"
                 nomeDoCampo="edtCodigoProduto"
+                conteudoPadrao={this.state.item_pedido?.item.descricao}
               />
             </div>
             <div className="col">
@@ -53,16 +70,16 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           </div>
           <div className="row">
             <div className="col">
-              <Campo titulo="Quantidade" nomeDoCampo="edtQuantidade" />
+              <Campo titulo="Quantidade" nomeDoCampo="edtQuantidade" conteudoPadrao="0" />
             </div>
             <div className="col">
-              <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" />
+              <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" conteudoPadrao={this.state.item_pedido?.preco_unitario} />
             </div>
             <div className="col">
-              <Campo titulo="Desconto" nomeDoCampo="edtDescontoTotal" />
+              <Campo titulo="Desconto" nomeDoCampo="edtDescontoTotal" conteudoPadrao="0" />
             </div>
             <div className="col">
-              <Campo titulo="Estoque atual" nomeDoCampo="edtEstoqueAtual" />
+              <Campo titulo="Estoque atual" nomeDoCampo="edtEstoqueAtual" conteudoPadrao={this.state.item_pedido?.item.preco_unitario} />
             </div>
           </div>
           <input type="submit" value="Botão teste adicionar" />

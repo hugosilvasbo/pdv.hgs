@@ -3,7 +3,11 @@ import React from "react";
 import Modal from "./Modal";
 import { IModal } from "../../interfaces/componentes/modal/IModal";
 
-export default class ModalProduto extends React.Component<IModal, {}> {
+interface IModalProduto extends IModal {
+  modalItemCallback: any
+}
+
+export default class ModalProduto extends React.Component<IModalProduto, {}> {
   state = {
     itens: []
   };
@@ -22,8 +26,8 @@ export default class ModalProduto extends React.Component<IModal, {}> {
 
   clickItemGrid(index: number) {
     let itemSelecionado = this.state.itens[index];
-    
-    
+    this.props.modalItemCallback(itemSelecionado);
+    this.props.onClose();
   }
 
   render() {

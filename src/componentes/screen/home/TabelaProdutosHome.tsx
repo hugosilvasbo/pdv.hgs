@@ -13,16 +13,16 @@ export default class TabelaProdutosHome extends React.Component<any, {}> {
                 <th scope="col">#</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Qtde</th>
-                <th scope="col">Total</th>
+                <th scope="col">Sub Total</th>
               </tr>
             </thead>
             <tbody>
               {this.props.itens.map((product: IItemPedido) => (
                 <tr key={product.sequencia}>
                   <td>{product.sequencia}</td>
-                  <td>{product.descricao}</td>
+                  <td>{product.item.descricao}</td>
                   <td>{product.quantidade}</td>
-                  <td>{product.total}</td>
+                  <td>{product.subtotal}</td>
                 </tr>
               ))}
             </tbody>
