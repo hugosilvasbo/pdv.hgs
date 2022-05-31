@@ -1,10 +1,10 @@
 import axios from "axios";
 import React from "react";
 import Modal from "./Modal";
-import { IModal } from "../../interfaces/componentes/modal/IModal";
+import { IModal } from "./interface/IModal";
 
 interface IModalProduto extends IModal {
-  modalItemCallback: any
+  callbackModalItem: any
 }
 
 export default class ModalProduto extends React.Component<IModalProduto, {}> {
@@ -26,7 +26,7 @@ export default class ModalProduto extends React.Component<IModalProduto, {}> {
 
   clickItemGrid(index: number) {
     let itemSelecionado = this.state.itens[index];
-    this.props.modalItemCallback(itemSelecionado);
+    this.props.callbackModalItem(itemSelecionado);
     this.props.onClose();
   }
 

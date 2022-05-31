@@ -1,10 +1,14 @@
 import React from "react";
 import Campo from "../../fields/Campo";
-import { IItemPedido } from "../../../interfaces/tables/IItemPedido";
+import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
 import ModalProduto from "../../modal/ModalProduto";
-import { IItem } from "../../../interfaces/tables/IItem";
+import { IItem } from "../../../db/modelagem/interfaces/IItem";
 
-export class ProdutoDetalheHome extends React.Component<any, {}> {
+interface IProdutoDetalheHome {
+  callBackProdutoDetalheHome: any
+}
+
+export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}> {
   state = {
     showModal: false,
     item_pedido: null as IItemPedido | null,
@@ -24,7 +28,7 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
       }
     };
 
-    this.props.parentCallBack(itens);
+    this.props.callBackProdutoDetalheHome(itens);
     event.preventDefault();
   };
 
@@ -48,7 +52,7 @@ export class ProdutoDetalheHome extends React.Component<any, {}> {
           onClose={() => this.setState({ showModal: false })}
           showModal={this.state.showModal}
           title={"Busca de produtos"}
-          modalItemCallback={this.callBackItemSelecionado}
+          callbackModalItem={this.callBackItemSelecionado}
         />
         <form onSubmit={this.onSubmit}>
           <div className="row">

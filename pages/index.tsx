@@ -3,7 +3,7 @@ import ConsumidorDetalhe from "../src/componentes/screen/home/ConsumidorDetalheH
 import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
 import TabelaProdutos from "../src/componentes/screen/home/TabelaProdutosHome";
 import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
-import { IItemPedido } from "../src/interfaces/tables/IItemPedido";
+import { IItemPedido } from "../src/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
 
 class Home extends React.Component {
@@ -13,9 +13,11 @@ class Home extends React.Component {
     total: 0,
   };
 
-  produtoDetalheCallBack = (it: IItemPedido) => {
+  callBackProdutoDetalheHome = (it: IItemPedido) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
-    let subtotal = (it.item.preco_unitario ? it.item.preco_unitario : 0) * (it.quantidade ? it.quantidade : 0);
+    let subtotal =
+      (it.item.preco_unitario ? it.item.preco_unitario : 0) *
+      (it.quantidade ? it.quantidade : 0);
 
     it.sequencia = this.state.itens.length + 1;
     it.subtotal = subtotal;
@@ -36,7 +38,9 @@ class Home extends React.Component {
             <div id={styles.box_item_atual}>
               <div className={styles.item_atual}>Por a imagem aqui dentro</div>
               <div className={styles.item_atual}>
-                <ProdutoDetalhe parentCallBack={this.produtoDetalheCallBack} />
+                <ProdutoDetalhe
+                  callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
+                />
               </div>
             </div>
             <ConsumidorDetalhe />

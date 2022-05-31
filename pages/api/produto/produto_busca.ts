@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import knex from "../../../src/db/config/Database";
-import { IItem } from "../../../src/interfaces/tables/IItem";
+import { IItem } from "../../../src/db/modelagem/interfaces/IItem";
 
 export default async function handler(
   req: NextApiRequest,
