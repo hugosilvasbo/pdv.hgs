@@ -1,32 +1,12 @@
 import React from "react";
-import NumberFormat from "react-number-format";
 import styles from "../../../styles/componentes/campo/Campo.module.scss";
 
 interface ICampoNumberFormat {
-  conteudo?: any;
-  titulo?: string;
-  nomeDoCampo: string;
-  inputType?: "text" | "input";
-  showPlaceHolder?: boolean;
-  floatValue?: number;
-  className?: string;
-  fixedDecimalScale?: boolean;
+  title?: string;
 }
 
-export default class CampoNumberFormat extends React.Component<
-  ICampoNumberFormat,
-  {}
-> {
-  render() {
-    const inputTitle = (
-      <label className={styles.titulo}>{this.props.titulo}</label>
-    );
-    return (
-      <>
-        <div className={styles.flex_column}>
-          {this.props.titulo ? inputTitle : ""}
-
-          <NumberFormat
+/*
+<NumberFormat
             defaultValue={this.props.conteudo}
             displayType={this.props.inputType ? this.props.inputType : "input"}
             decimalScale={2}
@@ -41,6 +21,27 @@ export default class CampoNumberFormat extends React.Component<
               this.setState({ floatValue: val.floatValue });
             }}
             value={this.props.floatValue}
+          />
+*/
+
+export default class CampoNumberFormat extends React.Component<
+  ICampoNumberFormat & React.HTMLProps<HTMLInputElement>, {}> {
+  render() {
+    const inputTitle = (
+      <label className={styles.titulo}>{this.props.title}</label>
+    );
+    return (
+      <>
+        <div className={styles.flex_column}>
+          {this.props.title ? inputTitle : ""}
+
+          <input
+            name={this.props.name}
+            value={this.props.value}
+            placeholder={this.props.placeholder}
+            className={
+              this.props.className ? this.props.className : styles.campo
+            }
           />
         </div>
       </>

@@ -1,9 +1,9 @@
 import React from "react";
-import Campo from "../../fields/Campo";
-import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
-import ModalProduto from "../../modal/ModalProduto";
 import { IItem } from "../../../db/modelagem/interfaces/IItem";
+import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
+import Campo from "../../fields/Campo";
 import CampoNumberFormat from "../../fields/CampoNumberFormat";
+import ModalProduto from "../../modal/ModalProduto";
 
 interface IProdutoDetalheHome {
   callBackProdutoDetalheHome: any;
@@ -79,31 +79,31 @@ export class ProdutoDetalheHome extends React.Component<
           <div className="row">
             <div className="col">
               <CampoNumberFormat
-                titulo="Quantidade"
-                nomeDoCampo="edtQuantidade"
-                showPlaceHolder={true}
+                title="Quantidade"
+                name="edtQuantidade"
+                placeholder="0,00"
               />
             </div>
             <div className="col">
               <CampoNumberFormat
-                titulo="Preço Unit."
-                conteudo={this.state.item_pedido?.preco_unitario}
-                nomeDoCampo="edtPrecoUnitario"
-                showPlaceHolder={true}
+                title="Preço Unit."
+                value={this.state.item_pedido?.preco_unitario}
+                name="edtPrecoUnitario"
+                placeholder="0,00"
               />
             </div>
             <div className="col">
               <CampoNumberFormat
-                titulo="Desconto"
-                nomeDoCampo="edtDescontoTotal"
-                showPlaceHolder={true}
+                title="Desconto"
+                name="edtDescontoTotal"
+                placeholder="0,00"
               />
             </div>
             <div className="col">
               <CampoNumberFormat
-                titulo="Estoque atual"
-                nomeDoCampo="edtEstoqueAtual"
-                showPlaceHolder={true}
+                title="Estoque atual"
+                name="edtEstoqueAtual"
+                placeholder="0,00"
               />
             </div>
           </div>
