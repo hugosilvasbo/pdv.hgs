@@ -24,8 +24,16 @@ interface ICampoNumberFormat {
           />
 */
 
-export default class CampoNumberFormat extends React.Component<
-  ICampoNumberFormat & React.HTMLProps<HTMLInputElement>, {}> {
+export default class CampoNumberFormat extends React.Component<ICampoNumberFormat & React.HTMLProps<HTMLInputElement>, {}> {
+
+  state = {
+    value: ""
+  };
+
+  handleChange = (event: any) => {
+    this.setState({ value: event.target.value })
+  }
+
   render() {
     const inputTitle = (
       <label className={styles.titulo}>{this.props.title}</label>
@@ -33,15 +41,16 @@ export default class CampoNumberFormat extends React.Component<
     return (
       <>
         <div className={styles.flex_column}>
-          {this.props.title ? inputTitle : ""}
-
+          <label>{this.props.title ? inputTitle : ""}</label>
           <input
-            name={this.props.name}
-            value={this.props.value}
-            placeholder={this.props.placeholder}
             className={
               this.props.className ? this.props.className : styles.campo
             }
+            defaultValue={this.props.value}
+            name={this.props.name}
+            onChange={this.handleChange}
+            placeholder={this.props.placeholder}
+            value={this.state.value}
           />
         </div>
       </>

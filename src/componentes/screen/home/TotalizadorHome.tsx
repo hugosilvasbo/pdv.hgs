@@ -13,11 +13,9 @@ export default function Totalizador(props: ICampos) {
         <div id={style.total}>
           Total R$
           <CampoNumberFormat
-            conteudo={props.total}
-            nomeDoCampo="edtTotalizador"
-            inputType="text"
+            value={props.total}
+            name="edtTotalizador"
             className={style.total}
-            fixedDecimalScale={true}
           />
         </div>
       </div>
