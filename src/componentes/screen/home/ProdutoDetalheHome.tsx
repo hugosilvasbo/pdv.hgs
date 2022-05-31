@@ -20,7 +20,6 @@ export class ProdutoDetalheHome extends React.Component<
 
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
   onSubmit = (event: any) => {
-    console.log(event.target.edtQuantidade.value);
     const itens: IItemPedido = {
       quantidade: event.target.edtQuantidade.value,
       desconto_total: event.target.edtDescontoTotal.value,
