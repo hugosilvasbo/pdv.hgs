@@ -3,12 +3,16 @@ import Campo from "../../fields/Campo";
 import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
 import ModalProduto from "../../modal/ModalProduto";
 import { IItem } from "../../../db/modelagem/interfaces/IItem";
+import CampoNumberFormat from "../../fields/CampoNumberFormat";
 
 interface IProdutoDetalheHome {
-  callBackProdutoDetalheHome: any
+  callBackProdutoDetalheHome: any;
 }
 
-export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}> {
+export class ProdutoDetalheHome extends React.Component<
+  IProdutoDetalheHome,
+  {}
+> {
   state = {
     showModal: false,
     item_pedido: null as IItemPedido | null,
@@ -16,6 +20,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
 
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
   onSubmit = (event: any) => {
+    console.log(event.target.edtQuantidade.value);
     const itens: IItemPedido = {
       quantidade: event.target.edtQuantidade.value,
       desconto_total: event.target.edtDescontoTotal.value,
@@ -25,7 +30,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
         descricao: this.state.item_pedido?.item.descricao,
         estoque_atual: event.target.edtEstoqueAtual.value,
         preco_unitario: event.target.edtPrecoUnitario.value,
-      }
+      },
     };
 
     this.props.callBackProdutoDetalheHome(itens);
@@ -39,11 +44,11 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           id: it.id,
           descricao: it.descricao,
           preco_unitario: it.preco_unitario,
-          estoque_atual: it.estoque_atual
-        }
-      }
-    })
-  }
+          estoque_atual: it.estoque_atual,
+        },
+      },
+    });
+  };
 
   render() {
     return (
@@ -74,16 +79,33 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           </div>
           <div className="row">
             <div className="col">
-              <Campo titulo="Quantidade" nomeDoCampo="edtQuantidade" conteudoPadrao="0" />
+              <CampoNumberFormat
+                titulo="Quantidade"
+                nomeDoCampo="edtQuantidade"
+                showPlaceHolder={true}
+              />
             </div>
             <div className="col">
-              <Campo titulo="Preço Unit." nomeDoCampo="edtPrecoUnitario" conteudoPadrao={this.state.item_pedido?.preco_unitario} />
+              <CampoNumberFormat
+                titulo="Preço Unit."
+                conteudo={this.state.item_pedido?.preco_unitario}
+                nomeDoCampo="edtPrecoUnitario"
+                showPlaceHolder={true}
+              />
             </div>
             <div className="col">
-              <Campo titulo="Desconto" nomeDoCampo="edtDescontoTotal" conteudoPadrao="0" />
+              <CampoNumberFormat
+                titulo="Desconto"
+                nomeDoCampo="edtDescontoTotal"
+                showPlaceHolder={true}
+              />
             </div>
             <div className="col">
-              <Campo titulo="Estoque atual" nomeDoCampo="edtEstoqueAtual" conteudoPadrao={this.state.item_pedido?.item.preco_unitario} />
+              <CampoNumberFormat
+                titulo="Estoque atual"
+                nomeDoCampo="edtEstoqueAtual"
+                showPlaceHolder={true}
+              />
             </div>
           </div>
           <input type="submit" value="Botão teste adicionar" />

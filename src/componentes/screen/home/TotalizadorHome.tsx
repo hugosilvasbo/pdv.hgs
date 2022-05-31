@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../../../../styles/componentes/screen/home/TotalizadorHome.module.scss";
+import CampoNumberFormat from "../../fields/CampoNumberFormat";
 
 interface ICampos {
   total: number;
@@ -11,7 +12,13 @@ export default function Totalizador(props: ICampos) {
       <div id={style.box_total}>
         <div id={style.total}>
           Total R$
-          <div>{props.total}</div>
+          <CampoNumberFormat
+            conteudo={props.total}
+            nomeDoCampo="edtTotalizador"
+            inputType="text"
+            className={style.total}
+            fixedDecimalScale={true}
+          />
         </div>
       </div>
     </>

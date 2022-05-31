@@ -11,7 +11,7 @@ export default async function handler(
 
   if (!resultado) {
     res.status(400).json({
-      error: "Registros de produtos não encontrados na base de dados.",
+      error: "Registros de itens não encontrados na base de dados.",
     });
   } else {
     res.status(200).json({
