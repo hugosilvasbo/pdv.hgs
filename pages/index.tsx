@@ -16,7 +16,7 @@ class Home extends React.Component {
   callBackProdutoDetalheHome = (it: IItemPedido) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
     let subtotal =
-      (it.item.preco_unitario ? it.item.preco_unitario : 0) *
+      (it.preco ? it.preco : 0) *
       (it.quantidade ? it.quantidade : 0);
 
     it.sequencia = this.state.itens.length + 1;

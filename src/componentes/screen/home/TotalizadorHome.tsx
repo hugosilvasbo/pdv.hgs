@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../../../../styles/componentes/screen/home/TotalizadorHome.module.scss";
-import CampoNumberFormat from "../../fields/CampoNumberFormat";
+import jsonValores from "../../../utils/json/valores.json";
 
 interface ICampos {
   total: number;
@@ -12,11 +12,7 @@ export default function Totalizador(props: ICampos) {
       <div id={style.box_total}>
         <div id={style.total}>
           Total R$
-          <CampoNumberFormat
-            value={props.total}
-            name="edtTotalizador"
-            className={style.total}
-          />
+          <div>{props.total.toFixed(jsonValores.casas_decimais.totalizador)}</div>
         </div>
       </div>
     </>

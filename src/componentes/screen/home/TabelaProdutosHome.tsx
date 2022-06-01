@@ -1,6 +1,7 @@
 import React from "react";
 import style from "../../../../styles/componentes/screen/home/TabelaProdutosHome.module.scss";
 import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
+import jsonValue from "../../../utils/json/valores.json"
 
 export default class TabelaProdutosHome extends React.Component<any, {}> {
   render() {
@@ -22,7 +23,7 @@ export default class TabelaProdutosHome extends React.Component<any, {}> {
                   <td>{product.sequencia}</td>
                   <td>{product.item.descricao}</td>
                   <td>{product.quantidade}</td>
-                  <td>{product.subtotal}</td>
+                  <td>{Number(product.subtotal).toFixed(jsonValue.casas_decimais.preco_venda)}</td>
                 </tr>
               ))}
             </tbody>

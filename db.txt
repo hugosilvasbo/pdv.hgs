@@ -1,6 +1,21 @@
 #Anotacoes das tabelas criadas até o momento:.
 
-create table pessoa (
-	id integer primary key,
-	razaosocial varchar(40)
+------------------------------------------------------------------------
+
+CREATE TABLE item
+(
+  id serial primary key,
+  descricao character varying(20)
 )
+
+------------------------------------------------------------------------
+
+create table item_preco (
+  id serial primary key,
+  fk_item integer,
+  preco numeric(38,9),
+  principal varchar(1) default('N'),
+  foreign key (fk_item) references item(id)
+)
+
+------------------------------------------------------------------------

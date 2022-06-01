@@ -1,18 +1,15 @@
 import React from "react";
-import { IItem } from "../../../db/modelagem/interfaces/IItem";
 import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
 import Campo from "../../fields/Campo";
 import CampoNumberFormat from "../../fields/CampoNumberFormat";
 import ModalProduto from "../../modal/ModalProduto";
+import jsonValue from "../../../utils/json/valores.json";
 
 interface IProdutoDetalheHome {
   callBackProdutoDetalheHome: any;
 }
 
-export class ProdutoDetalheHome extends React.Component<
-  IProdutoDetalheHome,
-  {}
-> {
+export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}> {
   state = {
     showModal: false,
     item_pedido: null as IItemPedido | null,
@@ -23,12 +20,12 @@ export class ProdutoDetalheHome extends React.Component<
     const itens: IItemPedido = {
       quantidade: event.target.edtQuantidade.value,
       desconto_total: event.target.edtDescontoTotal.value,
+      preco: event.target.edtPrecoUnitario.value,
 
       item: {
         id: event.target.edtCodigoProduto.value,
         descricao: this.state.item_pedido?.item.descricao,
         estoque_atual: event.target.edtEstoqueAtual.value,
-        preco_unitario: event.target.edtPrecoUnitario.value,
       },
     };
 
@@ -36,13 +33,13 @@ export class ProdutoDetalheHome extends React.Component<
     event.preventDefault();
   };
 
-  callBackItemSelecionado = (it: IItem) => {
+  callBackItemSelecionado = (it: any) => {
     this.setState({
       item_pedido: {
+        preco: it.preco,
         item: {
           id: it.id,
           descricao: it.descricao,
-          preco_unitario: it.preco_unitario,
           estoque_atual: it.estoque_atual,
         },
       },
@@ -68,10 +65,7 @@ export class ProdutoDetalheHome extends React.Component<
               />
             </div>
             <div className="col">
-              <button
-                type="button"
-                onClick={() => this.setState({ showModal: true })}
-              >
+              <button type="button" onClick={() => this.setState({ showModal: true })}>
                 Buscar produto teste
               </button>
             </div>
@@ -82,14 +76,16 @@ export class ProdutoDetalheHome extends React.Component<
                 title="Quantidade"
                 name="edtQuantidade"
                 placeholder="0,00"
+                decimalSize={jsonValue.casas_decimais.quantidade_venda}
               />
             </div>
             <div className="col">
               <CampoNumberFormat
                 title="Preço Unit."
-                value={this.state.item_pedido?.preco_unitario}
+                defaultValue={this.state.item_pedido?.preco}
                 name="edtPrecoUnitario"
                 placeholder="0,00"
+                decimalSize={jsonValue.casas_decimais.preco_venda}
               />
             </div>
             <div className="col">
@@ -97,6 +93,7 @@ export class ProdutoDetalheHome extends React.Component<
                 title="Desconto"
                 name="edtDescontoTotal"
                 placeholder="0,00"
+                decimalSize={jsonValue.casas_decimais.preco_venda}
               />
             </div>
             <div className="col">
@@ -104,6 +101,7 @@ export class ProdutoDetalheHome extends React.Component<
                 title="Estoque atual"
                 name="edtEstoqueAtual"
                 placeholder="0,00"
+                decimalSize={jsonValue.casas_decimais.estoque}
               />
             </div>
           </div>
