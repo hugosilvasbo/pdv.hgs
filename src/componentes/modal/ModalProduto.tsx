@@ -25,6 +25,8 @@ export default class ModalProduto extends React.Component<IModalProduto, {}> {
 
   clickItemGrid(index: number) {
     let itemSelecionado = this.state.itens[index];
+    //console.log({ itemselecionado: itemSelecionado });
+
     this.props.callbackModalItem(itemSelecionado);
     this.props.onClose();
   }

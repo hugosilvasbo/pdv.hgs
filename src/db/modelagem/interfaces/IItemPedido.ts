@@ -1,10 +1,11 @@
 import { IItem } from "./IItem";
 
 export interface IItemPedido {
-  item: IItem;
-  preco?: number | 0;
-  quantidade?: number | 0;
-  desconto_total?: number | 0;
-  subtotal?: number | 0;
-  sequencia?: number | 0;
+  id?: number;
+  quantidade?: number;
+  desconto?: number;
+  preco?: number;
+  sequencia?: number;
+  subtotal?: number;
+  IItem?: IItem;
 }

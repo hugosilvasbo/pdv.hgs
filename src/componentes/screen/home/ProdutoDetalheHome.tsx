@@ -1,9 +1,10 @@
 import React from "react";
+import { IItemBusca } from "../../../db/modelagem/interfaces/api/IItemBuscaAPI";
 import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
+import jsonValue from "../../../utils/json/valores.json";
 import Campo from "../../fields/Campo";
 import CampoNumberFormat from "../../fields/CampoNumberFormat";
 import ModalProduto from "../../modal/ModalProduto";
-import jsonValue from "../../../utils/json/valores.json";
 
 interface IProdutoDetalheHome {
   callBackProdutoDetalheHome: any;
@@ -12,20 +13,37 @@ interface IProdutoDetalheHome {
 export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}> {
   state = {
     showModal: false,
-    item_pedido: null as IItemPedido | null,
+    item_busca_api: {} as IItemBusca,
+  };
+
+  onKeyDown = (e: any) => {
+    let componente_name = e.target.name;
+
+    switch (e.keyCode) {
+      // F5
+      case 116:
+        if (componente_name === "edtCodigoProduto") {
+          this.setState({ showModal: true });
+        }
+        e.preventDefault();
+        break;
+    }
+  };
+
+  componentDidMount = () => {
+    document.body.addEventListener("keydown", this.onKeyDown);
   };
 
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
   onSubmit = (event: any) => {
     const itens: IItemPedido = {
-      quantidade: event.target.edtQuantidade.value,
-      desconto_total: event.target.edtDescontoTotal.value,
+      id: event.target.edtCodigoProduto.value,
+      desconto: event.target.edtDescontoTotal.value,
       preco: event.target.edtPrecoUnitario.value,
-
-      item: {
+      quantidade: event.target.edtQuantidade.value,
+      IItem: {
         id: event.target.edtCodigoProduto.value,
-        descricao: this.state.item_pedido?.item.descricao,
-        estoque_atual: event.target.edtEstoqueAtual.value,
+        descricao: this.state.item_busca_api.descricao,
       },
     };
 
@@ -33,15 +51,13 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
     event.preventDefault();
   };
 
-  callBackItemSelecionado = (it: any) => {
+  callBackItemSelecionado = (it: IItemBusca) => {
+    //console.log({ callbackitemselecionado: it });
     this.setState({
-      item_pedido: {
+      item_busca_api: {
+        id: it.id,
+        descricao: it.descricao,
         preco: it.preco,
-        item: {
-          id: it.id,
-          descricao: it.descricao,
-          estoque_atual: it.estoque_atual,
-        },
       },
     });
   };
@@ -49,25 +65,14 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
   render() {
     return (
       <>
-        <ModalProduto
-          onClose={() => this.setState({ showModal: false })}
-          showModal={this.state.showModal}
-          title={"Busca de produtos"}
-          callbackModalItem={this.callBackItemSelecionado}
-        />
         <form onSubmit={this.onSubmit}>
           <div className="row">
             <div className="col">
               <Campo
-                titulo="Selecione o produto (Código de barras ou descrição)"
+                titulo="Produto (F5)"
                 nomeDoCampo="edtCodigoProduto"
-                conteudoPadrao={this.state.item_pedido?.item.descricao}
+                conteudoPadrao={this.state.item_busca_api.descricao}
               />
-            </div>
-            <div className="col">
-              <button type="button" onClick={() => this.setState({ showModal: true })}>
-                Buscar produto teste
-              </button>
             </div>
           </div>
           <div className="row">
@@ -82,7 +87,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
             <div className="col">
               <CampoNumberFormat
                 title="Preço Unit."
-                defaultValue={this.state.item_pedido?.preco}
+                value={this.state.item_busca_api.preco}
                 name="edtPrecoUnitario"
                 placeholder="0,00"
                 decimalSize={jsonValue.casas_decimais.preco_venda}
@@ -105,8 +110,15 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
               />
             </div>
           </div>
-          <input type="submit" value="Botão teste adicionar" />
+          <br/>
+          <button type="submit">Inserir</button>
         </form>
+        <ModalProduto
+          onClose={() => this.setState({ showModal: false })}
+          showModal={this.state.showModal}
+          title={"Busca de produtos"}
+          callbackModalItem={this.callBackItemSelecionado}
+        />
       </>
     );
   }

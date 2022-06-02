@@ -9,22 +9,17 @@ interface ICampoNumberFormat {
   placeholder?: string;
   title?: string;
   value?: any;
-  valueFormatted?: any;
   decimalSize?: number;
 }
 
 export default class CampoNumberFormat extends React.Component<ICampoNumberFormat, {}> {
   state = {
     value: "",
-    valueFormatted: "",
+    alterado: false,
   };
 
-  handleChange = (event: any) => {
-    let valor = event.target.value;
-    this.setState({ value: valor });
-
-    let valorFormatador = valor;
-    this.setState({ valueFormatted: valorFormatador })
+  handleChange = () => {
+    
   };
 
   render() {
@@ -37,9 +32,10 @@ export default class CampoNumberFormat extends React.Component<ICampoNumberForma
             className={styles.campo}
             defaultValue={this.props.defaultValue}
             name={this.props.name}
-            onChange={this.handleChange}
             placeholder={this.props.placeholder}
-            value={this.state.valueFormatted}
+            onChange={this.handleChange}
+            type={"number"}
+            //value={this.state.value} -- fazer o controle do valor aki.
           />
         </div>
       </>
