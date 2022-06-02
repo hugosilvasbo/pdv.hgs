@@ -29,6 +29,7 @@ export default class CampoNumberFormat extends React.Component<ICampoNumberForma
         <div className={styles.flex_column}>
           <label>{this.props.title ? inputTitle : ""}</label>
           <input
+            autoComplete="off"
             className={styles.campo}
             defaultValue={this.props.defaultValue}
             name={this.props.name}

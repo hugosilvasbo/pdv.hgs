@@ -14,10 +14,11 @@ export default class Campo extends React.Component<ICampo, {}> {
         <div className={styles.flex_column}>
           <label className={styles.titulo}>{this.props.titulo}</label>
           <input
+            autoComplete="off"
             className={styles.campo}
+            defaultValue={this.props.conteudoPadrao}
             name={this.props.nomeDoCampo}
             type="text"
-            defaultValue={this.props.conteudoPadrao}
           ></input>
         </div>
       </>
