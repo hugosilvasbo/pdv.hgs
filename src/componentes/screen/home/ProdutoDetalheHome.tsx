@@ -110,8 +110,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
               />
             </div>
           </div>
-          <br/>
-          <button type="submit">Inserir</button>
+          <button type="submit" hidden={true} />
         </form>
         <ModalProduto
           onClose={() => this.setState({ showModal: false })}
