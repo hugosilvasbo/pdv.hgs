@@ -52,7 +52,19 @@ class Home extends React.Component {
       <>
         <div id={styles.box_corpo}>
           <header id={styles.box_cabecalho}>
-            <h1>{this.state.caixa}</h1>
+            <div id={styles.cabecalho_titulo}>
+              {this.state.caixa}
+            </div>
+            <div id={styles.cabecalho_menu}>
+              <ul>
+                <li>
+                  Cadastros
+                </li>
+                <li>
+                  Relatórios
+                </li>
+              </ul>
+            </div>
           </header>
           <div id={styles.box_conteudo}>
             <div id={styles.conteudo_esquerdo}>

@@ -1,5 +1,5 @@
 @import "variaveis.scss";
-$height_box_cabecalho: 70px;
+$height_box_cabecalho: 35px;
 
 #box_corpo {
   @extend .flex_column, .width_height_100_por_cento;
@@ -8,10 +8,26 @@ $height_box_cabecalho: 70px;
 }
 
 #box_cabecalho {
-  @extend .flex_item_center;
+  @extend .flex_row;
   background-color: $cor_bg_menu;
-  color: white;
   height: $height_box_cabecalho;
+
+  #cabecalho_titulo {
+    @extend .flex_row;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    margin-left: 15px;
+    width: 50%;
+  }
+
+  #cabecalho_menu {
+    @extend .flex_row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 15px;
+    width: 50%
+  }
 }
 
 #box_conteudo {
@@ -77,5 +93,3 @@ $height_box_cabecalho: 70px;
     }
   }
 }
-
-
