@@ -1,6 +1,6 @@
 import React from "react";
-import Modal from "./Modal";
-import { IModal } from "./interface/IModal";
+import Modal from "../Modal";
+import { IModal } from "../interface/IModal";
 
 export default class ModalItem extends React.Component<IModal, {}> {
   render() {

@@ -6,8 +6,8 @@ import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import { IItemPedido } from "../src/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
 import ModalAjuda from "../src/componentes/modal/ModalAjuda";
-import ModalCadItem from "../src/componentes/modal/ModalItem";
-import ModalCadCliente from "../src/componentes/modal/ModalCliente";
+import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
+import ModalCadCliente from "../src/componentes/modal/cadastro/ModalCliente";
 
 class Home extends React.Component {
   state = {

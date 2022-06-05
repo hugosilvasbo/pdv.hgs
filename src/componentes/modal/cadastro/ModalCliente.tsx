@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "./Modal";
-import { IModal } from "./interface/IModal";
-import Campo from "../fields/Campo";
+import Modal from "../Modal"
+import { IModal } from "../interface/IModal";
+import Campo from "../../fields/Campo";
 
 export default class ModalCliente extends React.Component<IModal, {}> {
   render() {
