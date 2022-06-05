@@ -8,7 +8,7 @@ interface IModalProduto extends IModal {
   callbackModalItem: any;
 }
 
-export default class ModalProduto extends React.Component<IModalProduto, {}> {
+export default class ModalSelecaoItem extends React.Component<IModalProduto, {}> {
   state = {
     itens: [],
   };

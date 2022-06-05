@@ -1,7 +1,7 @@
 export interface IModal {
   showModal: boolean;
   onClose: any;
-  title: string;
+  title?: string;
   children?: any;
   objectClicked?: {};
 }

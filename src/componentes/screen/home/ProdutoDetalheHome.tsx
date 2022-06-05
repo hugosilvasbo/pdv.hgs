@@ -4,7 +4,7 @@ import { IItemPedido } from "../../../db/modelagem/interfaces/IItemPedido";
 import jsonValue from "../../../utils/json/valores.json";
 import Campo from "../../fields/Campo";
 import CampoNumberFormat from "../../fields/CampoNumberFormat";
-import ModalProduto from "../../modal/ModalProduto";
+import ModalSelecaoItem from "../../modal/ModalSelecaoItem";
 
 interface IProdutoDetalheHome {
   callBackProdutoDetalheHome: any;
@@ -112,7 +112,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           </div>
           <button type="submit" hidden={true} />
         </form>
-        <ModalProduto
+        <ModalSelecaoItem
           onClose={() => this.setState({ showModal: false })}
           showModal={this.state.showModal}
           title={"Busca de produtos"}

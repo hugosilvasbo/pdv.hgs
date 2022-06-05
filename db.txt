@@ -19,3 +19,16 @@ create table item_preco (
 )
 
 ------------------------------------------------------------------------
+
+create table pessoa (
+   id serial primary key,
+   razao_social varchar(60),
+   fantasia varchar(60)   
+);
+
+insert into pessoa (razao_social, fantasia) values 
+  ('Gabriella Donanzam', 'Gabi'),
+  ('Daniel Mutti', 'Mutti'),
+  ('André Costa', 'André'),
+  ('Hugo Silva de Souza', 'Hugo'),
+  ('Francisco Donizette', 'Donizette');

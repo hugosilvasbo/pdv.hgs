@@ -6,6 +6,8 @@ import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import { IItemPedido } from "../src/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
 import ModalAjuda from "../src/componentes/modal/ModalAjuda";
+import ModalCadItem from "../src/componentes/modal/ModalItem";
+import ModalCadCliente from "../src/componentes/modal/ModalCliente";
 
 class Home extends React.Component {
   state = {
@@ -13,6 +15,8 @@ class Home extends React.Component {
     itens: [] as IItemPedido[],
     total: 0,
     showModalAjuda: false,
+    showModalItemCadastro: false,
+    showModalClienteCadastro: false,
   };
 
   componentDidMount = () => {
@@ -52,17 +56,34 @@ class Home extends React.Component {
       <>
         <div id={styles.box_corpo}>
           <header id={styles.box_cabecalho}>
-            <div id={styles.cabecalho_titulo}>
-              {this.state.caixa}
-            </div>
+            <div id={styles.cabecalho_titulo}>{this.state.caixa}</div>
             <div id={styles.cabecalho_menu}>
               <ul>
                 <li>
-                  Cadastros
+                  <a
+                    href="#"
+                    onClick={() => this.setState({ showModalClienteCadastro: true })}
+                  >
+                    Clientes
+                  </a>
                 </li>
                 <li>
-                  Relatórios
+                  <a
+                    href="#"
+                    onClick={() => this.setState({ showModalItemCadastro: true })}
+                  >
+                    Produtos
+                  </a>
                 </li>
+                {/*<li>
+                  <a href="#">link 3</a>
+                </li>
+                <li>
+                  <a href="#">link 4</a>
+                </li>
+                <li>
+                  <a href="#">link 5</a>
+    </li>*/}
               </ul>
             </div>
           </header>
@@ -86,10 +107,21 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+
         <ModalAjuda
           onClose={() => this.setState({ showModalAjuda: false })}
           showModal={this.state.showModalAjuda}
           title={"Ajuda - Comandos"}
+        />
+
+        <ModalCadItem
+          onClose={() => this.setState({ showModalItemCadastro: false })}
+          showModal={this.state.showModalItemCadastro}
+        />
+
+        <ModalCadCliente
+          onClose={() => this.setState({ showModalClienteCadastro: false })}
+          showModal={this.state.showModalClienteCadastro}
         />
       </>
     );
