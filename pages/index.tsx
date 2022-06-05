@@ -14,7 +14,9 @@ class Home extends React.Component {
     caixa: "CAIXA ABERTO",
     itens: [] as IItemPedido[],
     total: 0,
-    showModal: false
+    showModalAjuda: false,
+    showModalItemCadastro: false,
+    showModalClienteCadastro: false,
   };
 
   componentDidMount = () => {
@@ -27,7 +29,7 @@ class Home extends React.Component {
         // F12
         case 123:
           if (e.ctrlKey) {
-            this.setState({ showModal: true });
+            this.setState({ showModalAjuda: true });
             console.log(e);
             e.preventDefault();
           }
@@ -60,7 +62,7 @@ class Home extends React.Component {
                 <li>
                   <a
                     href="#"
-                    onClick={() => this.setState({ showModal: true })}
+                    onClick={() => this.setState({ showModalClienteCadastro: true })}
                   >
                     Clientes
                   </a>
@@ -68,7 +70,7 @@ class Home extends React.Component {
                 <li>
                   <a
                     href="#"
-                    onClick={() => this.setState({ showModal: true })}
+                    onClick={() => this.setState({ showModalItemCadastro: true })}
                   >
                     Produtos
                   </a>
@@ -107,19 +109,19 @@ class Home extends React.Component {
         </div>
 
         <ModalAjuda
-          onClose={() => this.setState({ showModal: false })}
-          showModal={this.state.showModal}
+          onClose={() => this.setState({ showModalAjuda: false })}
+          showModal={this.state.showModalAjuda}
           title={"Ajuda - Comandos"}
         />
 
         <ModalCadItem
-          onClose={() => this.setState({ showModal: false })}
-          showModal={this.state.showModal}
+          onClose={() => this.setState({ showModalItemCadastro: false })}
+          showModal={this.state.showModalItemCadastro}
         />
 
         <ModalCadCliente
-          onClose={() => this.setState({ showModal: false })}
-          showModal={this.state.showModal}
+          onClose={() => this.setState({ showModalClienteCadastro: false })}
+          showModal={this.state.showModalClienteCadastro}
         />
       </>
     );
