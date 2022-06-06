@@ -15,7 +15,7 @@ export default class ModalSelecaoItem extends React.Component<IModalProduto, {}>
 
   async componentDidUpdate(nextProps: IModal) {
     if (this.props.showModal != nextProps.showModal) {
-      let api = await axios.get("/api/item/item_busca").then(function (it: any) {
+      let api = await axios.get("/api/item/busca").then(function (it: any) {
         return it.data.itens;
       });
 

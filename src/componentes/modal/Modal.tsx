@@ -25,34 +25,40 @@ const Modal = (props: IModal) => {
     };
   }, []);
 
+  const btnSair = (
+    <button
+      type="button"
+      id="btnCancel"
+      className="btn btn-danger btn-sm"
+      onClick={props.onClose}
+    >
+      Sair
+    </button>
+  );
+
+  const btnConcluir = (
+    <button
+      type="button"
+      id="btnSubmit"
+      className="btn btn-primary btn-sm me-2"
+      onClick={props.onFinish}
+    >
+      {props.btnFinishCaption ? props.btnFinishCaption : "Concluir"}
+    </button>
+  );
+
   return (
     <>
       <div className={styles.modal} onClick={props.onClose}>
-        <div
-          className={styles.modal_content}
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className={styles.modal_content} onClick={(e) => e.stopPropagation()}>
           <div className={styles.modal_header}>
             <h4 className={styles.modal_title}>{props.title}</h4>
           </div>
           <div className={styles.modal_body}>{props.children}</div>
           <div className={styles.modal_footer}>
             <div className="btn-toolbar">
-              <button
-                type="button"
-                id="btnSubmit"
-                className="btn btn-primary btn-sm me-2"
-              >
-                Concluir
-              </button>
-              <button
-                type="button"
-                id="btnCancel"
-                className="btn btn-danger btn-sm"
-                onClick={props.onClose}
-              >
-                Cancelar
-              </button>
+              {props.onFinish ? btnConcluir : ""}
+              {props.onClose ? btnSair : ""}
             </div>
           </div>
         </div>

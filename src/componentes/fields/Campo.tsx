@@ -5,9 +5,17 @@ interface ICampo {
   titulo: string;
   nomeDoCampo: string;
   conteudoPadrao?: any;
+  onChangeValue?: any;
 }
 
 export default class Campo extends React.Component<ICampo, {}> {
+  handleChange = (e: any) => {
+    if (this.props.onChangeValue) {
+      console.log({ CampoTSX: e });
+      this.props.onChangeValue(e.target.value);
+    }
+  };
+
   render() {
     return (
       <>
@@ -19,6 +27,7 @@ export default class Campo extends React.Component<ICampo, {}> {
             defaultValue={this.props.conteudoPadrao}
             name={this.props.nomeDoCampo}
             type="text"
+            onChange={this.handleChange}
           ></input>
         </div>
       </>

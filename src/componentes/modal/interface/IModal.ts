@@ -1,7 +1,9 @@
 export interface IModal {
   showModal: boolean;
   onClose: any;
+  onFinish?: any;
   title?: string;
   children?: any;
-  objectClicked?: {};
+  clickedObject?: {};
+  btnFinishCaption?: string
 }
