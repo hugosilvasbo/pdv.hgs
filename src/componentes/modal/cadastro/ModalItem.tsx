@@ -5,6 +5,7 @@ import Campo from "../../fields/Campo";
 import { IItem } from "../../../db/modelagem/interfaces/IItem";
 import axios from "axios";
 import json_valor from "../../../utils/json/valores.json";
+import Tab from "../../tab/Tab"
 
 export default class ModalItem extends React.Component<IModal, {}> {
   state = {
@@ -21,6 +22,9 @@ export default class ModalItem extends React.Component<IModal, {}> {
   };
 
   render() {
+    let divBuscaTeste = <>ae</>;
+    let divInfoTeste = <>eo</>;
+
     return (
       <>
         <Modal
@@ -35,6 +39,11 @@ export default class ModalItem extends React.Component<IModal, {}> {
             titulo="Descrição do item"
             maxLength={json_valor.tabela_bd_size.item.descricao}
             onChangeValue={this.handleDescricaoChange}
+          />
+          <Tab
+            caption={["Busca", "Info."]}
+            id={["busca", "info"]}
+            content={[divBuscaTeste, divInfoTeste]}
           />
         </Modal>
       </>
