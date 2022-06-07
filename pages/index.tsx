@@ -64,7 +64,7 @@ class Home extends React.Component {
                     href="#"
                     onClick={() => this.setState({ showModalClienteCadastro: true })}
                   >
-                    Clientes
+                    Pessoas
                   </a>
                 </li>
                 <li>
@@ -72,7 +72,7 @@ class Home extends React.Component {
                     href="#"
                     onClick={() => this.setState({ showModalItemCadastro: true })}
                   >
-                    Produtos
+                    Itens
                   </a>
                 </li>
                 {/*<li>

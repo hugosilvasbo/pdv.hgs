@@ -6,6 +6,7 @@ interface ICampo {
   nomeDoCampo: string;
   conteudoPadrao?: any;
   onChangeValue?: any;
+  maxLength?: number;
 }
 
 export default class Campo extends React.Component<ICampo, {}> {
@@ -25,9 +26,10 @@ export default class Campo extends React.Component<ICampo, {}> {
             autoComplete="off"
             className={styles.campo}
             defaultValue={this.props.conteudoPadrao}
+            maxLength={this.props.maxLength ? this.props.maxLength : undefined}
             name={this.props.nomeDoCampo}
-            type="text"
             onChange={this.handleChange}
+            type="text"
           ></input>
         </div>
       </>

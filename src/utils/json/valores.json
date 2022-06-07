@@ -4,5 +4,14 @@
         "preco_venda": 2,
         "quantidade_venda": 2,
         "estoque": 2
+    },
+    "tabela_bd_size": {
+        "item": {
+            "descricao": 20
+        },
+        "pessoa": {
+            "razao_social": 60,
+            "fantasia": 60
+        }
     }
 }

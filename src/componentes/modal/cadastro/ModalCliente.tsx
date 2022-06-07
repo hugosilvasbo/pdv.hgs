@@ -4,6 +4,7 @@ import Campo from "../../fields/Campo";
 import { IModal } from "../interface/IModal";
 import Modal from "../Modal";
 import axios from "axios";
+import json_valor from "../../../utils/json/valores.json";
 
 export default class ModalCliente extends React.Component<IModal, {}> {
   state = {
@@ -19,7 +20,8 @@ export default class ModalCliente extends React.Component<IModal, {}> {
   };
 
   onFinish = async () => {
-    await axios.post("/api/cliente/gravar", this.state.pessoa);
+    let resultado = await axios.post("/api/cliente/gravar", this.state.pessoa);
+    alert("finalizou processo do modal cliente... agora tratar isso com loading etc... colocar consulta...");
   };
 
   render() {
@@ -36,11 +38,13 @@ export default class ModalCliente extends React.Component<IModal, {}> {
             nomeDoCampo="edtRazaoSocial"
             titulo="Razão social"
             onChangeValue={this.handleRazaoSocialChange}
+            maxLength={json_valor.tabela_bd_size.pessoa.razao_social}
           />
           <Campo
             nomeDoCampo="edtFantasia"
             titulo="Fantasia"
             onChangeValue={this.handleFantasiaChange}
+            maxLength={json_valor.tabela_bd_size.pessoa.fantasia}
           />
         </Modal>
       </>
