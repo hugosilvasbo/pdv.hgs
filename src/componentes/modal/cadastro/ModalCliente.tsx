@@ -10,18 +10,16 @@ export default class ModalCliente extends React.Component<IModal, {}> {
     pessoa: {} as IPessoa,
   };
 
-  handleRazaoSocialChange = (razaoSocial: any) => {
-    this.setState({ pessoa: { razaoSocial: razaoSocial } });
+  handleRazaoSocialChange = (razao_social: any) => {
+    this.setState({ pessoa: { ...this.state.pessoa, razao_social: razao_social } });
   };
 
   handleFantasiaChange = (fantasia: any) => {
-    this.setState({ pessoa: { fantasia: fantasia } });
+    this.setState({ pessoa: { ...this.state.pessoa, fantasia: fantasia } });
   };
 
   onFinish = async () => {
-    let api = await axios.post("/api/cliente/gravar", this.state.pessoa);
-    console.log({ api_modal_cliente: api });
-    alert("Agora, receber via Router na outra página e fazer a inserção.")
+    await axios.post("/api/cliente/gravar", this.state.pessoa);
   };
 
   render() {

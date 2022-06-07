@@ -11,7 +11,7 @@ interface ICampo {
 export default class Campo extends React.Component<ICampo, {}> {
   handleChange = (e: any) => {
     if (this.props.onChangeValue) {
-      console.log({ CampoTSX: e });
+      //console.log({ CampoTSX: e });
       this.props.onChangeValue(e.target.value);
     }
   };
