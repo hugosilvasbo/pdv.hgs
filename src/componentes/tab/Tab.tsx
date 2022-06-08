@@ -12,12 +12,24 @@ export default class Tab extends React.Component<ITab, {}> {
     render() {
         return (
             <>
-                <div id={style.box_content}>
-                    <h2>Apenas teste... fazer os esquemas aqui, ou melhor, criar uma tab especifico pra cada um...</h2>
-                    {console.log(this.props.caption)}
-                    {this.props.caption} <br />
-                    {this.props.id} <br />
-                    {this.props.content} <br />
+                <div id={style.body}>
+                    <div id={style.box_tab}>
+                        <button className={style.tab}>Busca</button>
+                        <button className={style.tab}>Info</button>
+                    </div>
+                    <div className={style.main_none}>
+                        {/*{console.log(this.props.caption)}
+                        {this.props.caption} <br />
+                        {this.props.id} <br />
+                        {this.props.content} <br />*/}
+                        Paris
+                    </div>
+                    <div className={style.main_none}>
+                        Alemanha
+                    </div>
+                    <div className={style.main_block}>
+                        Holanda
+                    </div>
                 </div>
             </>
         );
