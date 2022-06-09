@@ -1,37 +1,41 @@
-import React from "react";
-import style from "../../../styles/componentes/tab/Tab.module.scss"
-//https://www.w3schools.com/w3css/w3css_tabulators.asp
+import React, { useState } from "react";
+import style from "../../../styles/componentes/tab/Tab.module.scss";
 
-interface ITab {
-    caption: any,
-    content: any,
-    id: any
+interface ITabs {
+  index: string;
+  children: [];
 }
 
-export default class Tab extends React.Component<ITab, {}> {
-    render() {
-        return (
-            <>
-                <div id={style.body}>
-                    <div id={style.box_tab}>
-                        <button className={style.tab}>Busca</button>
-                        <button className={style.tab}>Info</button>
-                    </div>
-                    <div className={style.main_none}>
-                        {/*{console.log(this.props.caption)}
-                        {this.props.caption} <br />
-                        {this.props.id} <br />
-                        {this.props.content} <br />*/}
-                        Paris
-                    </div>
-                    <div className={style.main_none}>
-                        Alemanha
-                    </div>
-                    <div className={style.main_block}>
-                        Holanda
-                    </div>
-                </div>
-            </>
-        );
-    }
-}
+const Tabs = (props: ITabs) => {
+  const [activeTab, setActiveTab] = useState("tab1");
+
+  const handleTab = (index: string) => {
+    setActiveTab(index);
+  };
+
+  return (
+    <>
+      <div className={style.Tabs}>
+        <ul className={style.nav}>
+          <li
+            className={activeTab === "tab1" ? "active" : ""}
+            onClick={() => handleTab("tab1")}
+          >
+            Tab 1
+          </li>
+          <li
+            className={activeTab === "tab2" ? "active" : ""}
+            onClick={() => handleTab("tab2")}
+          >
+            Tab 2
+          </li>
+        </ul>
+        <div className={style.outlet}>
+          {activeTab === "tab1" ? <FirstTab /> : <SecondTab />}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Tabs;

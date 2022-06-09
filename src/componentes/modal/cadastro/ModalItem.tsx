@@ -5,7 +5,7 @@ import Campo from "../../fields/Campo";
 import { IItem } from "../../../db/modelagem/interfaces/IItem";
 import axios from "axios";
 import json_valor from "../../../utils/json/valores.json";
-import Tab from "../../tab/Tab"
+import Tab from "../../tab/Tab";
 
 export default class ModalItem extends React.Component<IModal, {}> {
   state = {
@@ -18,12 +18,28 @@ export default class ModalItem extends React.Component<IModal, {}> {
 
   onFinish = async () => {
     let resultado = await axios.post("/api/item/gravar", this.state.item);
-    alert("Finalizou o processo do item... agora tratar com loading, etc... melhorar a tela! :D");
+    alert(
+      "Finalizou o processo do item... agora tratar com loading, etc... melhorar a tela! :D"
+    );
   };
 
   render() {
-    let divBuscaTeste = <>ae</>;
-    let divInfoTeste = <>eo</>;
+    const FirstTab = () => {
+      return (
+        <div>
+          <p>First TAB!!!</p>
+        </div>
+      );
+    };
+
+    const SecondTab = () => {
+      return (
+        <div>
+          <p>Second Tab!! Hurray!!</p>
+          {/* Second  tab content will go here */}
+        </div>
+      );
+    };
 
     return (
       <>
@@ -40,11 +56,7 @@ export default class ModalItem extends React.Component<IModal, {}> {
             maxLength={json_valor.tabela_bd_size.item.descricao}
             onChangeValue={this.handleDescricaoChange}
           />
-          <Tab
-            caption={["Busca", "Info."]}
-            id={["busca", "info"]}
-            content={[divBuscaTeste, divInfoTeste]}
-          />
+          <Tab children={[<FirstTab />, <SecondTab />]} />
         </Modal>
       </>
     );
