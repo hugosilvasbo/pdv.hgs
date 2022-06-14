@@ -1,3 +1,5 @@
 {
-    "operacao_sucesso": "Operação realizada com sucesso!"
+    "operacao_sucesso": "Operação realizada com sucesso!",
+    "registros_nao_encontrados": "Registro(s) não encontrado(s).",
+    "registros_encontrados": "Registro(s) encontrado(s)."
 }

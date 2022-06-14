@@ -4,8 +4,8 @@ import { IModal } from "../interface/IModal";
 import Campo from "../../fields/Campo";
 import { IItem } from "../../../db/modelagem/interfaces/IItem";
 import axios from "axios";
-import json_valor from "../../../utils/json/valores.json";
-import Tab from "../../tab/Tab";
+import json_defs from "../../../utils/json/valores.json";
+import { ToastContainer, toast } from "react-toastify";
 
 export default class ModalItem extends React.Component<IModal, {}> {
   state = {
@@ -17,30 +17,21 @@ export default class ModalItem extends React.Component<IModal, {}> {
   };
 
   onFinish = async () => {
-    let resultado = await axios.post("/api/item/gravar", this.state.item);
-    alert(
-      "Finalizou o processo do item... agora tratar com loading, etc... melhorar a tela! :D"
-    );
+    await axios.post("/api/item/gravar", this.state.item).then((response: any) => {
+      //to-do: separar para deixar generico...
+      toast(response.data.message, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    });
   };
 
   render() {
-    const FirstTab = () => {
-      return (
-        <div>
-          <p>First TAB!!!</p>
-        </div>
-      );
-    };
-
-    const SecondTab = () => {
-      return (
-        <div>
-          <p>Second Tab!! Hurray!!</p>
-          {/* Second  tab content will go here */}
-        </div>
-      );
-    };
-
     return (
       <>
         <Modal
@@ -53,10 +44,10 @@ export default class ModalItem extends React.Component<IModal, {}> {
           <Campo
             nomeDoCampo="edtDescricao"
             titulo="Descrição do item"
-            maxLength={json_valor.tabela_bd_size.item.descricao}
+            maxLength={json_defs.tabela_bd_size.item.descricao}
             onChangeValue={this.handleDescricaoChange}
           />
-          <Tab children={[<FirstTab />, <SecondTab />]} />
+          <ToastContainer />
         </Modal>
       </>
     );

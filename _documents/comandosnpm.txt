@@ -1,0 +1,2 @@
+-- desinstalar
+npm uninstall <package name>
