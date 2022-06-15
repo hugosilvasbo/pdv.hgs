@@ -25,7 +25,6 @@ export default class ModalSelecaoItem extends React.Component<IModalProduto, {}>
 
   clickItemGrid(index: number) {
     let itemSelecionado = this.state.itens[index];
-    //console.log({ itemselecionado: itemSelecionado });
 
     this.props.callbackModalItem(itemSelecionado);
     this.props.onClose();
@@ -48,8 +47,8 @@ export default class ModalSelecaoItem extends React.Component<IModalProduto, {}>
       <table className="table table-striped ">
         <thead>
           <tr>
-            {columns.map((it: any) => {
-              return <th scope="col">{it.title}</th>;
+            {columns.map((it: any, index: number) => {
+              return <th scope="col" key={index}>{it.title}</th>;
             })}
           </tr>
         </thead>

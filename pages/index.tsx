@@ -67,9 +67,9 @@ class Home extends React.Component {
       },
     ];
 
-    let result = itens.map((item: any) => {
+    let result = itens.map((item: any, index: number) => {
       return (
-        <li>
+        <li key={index}>
           <a href="#" onClick={item.onClick}>
             {item.caption}
           </a>

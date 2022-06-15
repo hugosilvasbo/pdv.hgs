@@ -9,7 +9,7 @@ import { IModal } from "./interface/IModal";
 
 const Modal = (props: IModal) => {
   if (!props.showModal) {
-    return null;
+    return null
   }
 
   const closeOnEscapeKeyDown = (e: any) => {
