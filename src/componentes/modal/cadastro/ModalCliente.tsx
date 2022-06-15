@@ -5,6 +5,7 @@ import { IModal } from "../interface/IModal";
 import Modal from "../Modal";
 import axios from "axios";
 import json_valor from "../../../utils/json/valores.json";
+import TabCliente from "../../tabsheet/cadastro/TabCliente"
 
 export default class ModalCliente extends React.Component<IModal, {}> {
   state = {
@@ -34,6 +35,9 @@ export default class ModalCliente extends React.Component<IModal, {}> {
           showModal={this.props.showModal}
           btnFinishCaption={"Gravar"}
         >
+          {/** tab cliente teste, aprimorar depois... */}
+          <TabCliente />
+
           <Campo
             nomeDoCampo="edtRazaoSocial"
             titulo="Razão social"
