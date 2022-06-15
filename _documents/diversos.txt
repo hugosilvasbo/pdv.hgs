@@ -1,0 +1,2 @@
+-- icones
+https://fontawesome.com/search?q=calcu&s=thin

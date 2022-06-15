@@ -1,2 +1,5 @@
 -- desinstalar
 npm uninstall <package name>
+
+-- font awesome
+npm i --save @fortawesome/fontawesome-svg-core

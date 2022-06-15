@@ -92,7 +92,7 @@ class Home extends React.Component {
           </header>
           <div id={styles.box_conteudo}>
             <div id={styles.conteudo_esquerdo}>
-              <div className={styles.barra_titulo}>Detalhe do item</div>
+              <div className={styles.barra_titulo}><i className="fas fa-sitemap"></i>&nbsp;&nbsp;Detalhe</div>
               <div id={styles.box_item_atual}>
                 <div className={styles.item_atual}>Por a imagem aqui dentro</div>
                 <div className={styles.item_atual}>
@@ -104,7 +104,7 @@ class Home extends React.Component {
               <ConsumidorDetalhe />
             </div>
             <div id={styles.conteudo_direito}>
-              <div className={styles.barra_titulo}>Produtos / Serviços</div>
+              <div className={styles.barra_titulo}><i className="fas fa-bookmark"></i>&nbsp;&nbsp;Produtos</div>
               <TabelaProdutos itens={this.state.itens} />
               <Totalizador total={this.state.total} />
             </div>

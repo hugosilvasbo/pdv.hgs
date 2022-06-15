@@ -7,7 +7,7 @@ export class ConsumidorDetalheHome extends React.Component {
     return (
       <>
         <div id={style.box_detalhe_pedido}>
-          <div className={style.barra_titulo}>Informações do pedido</div>
+          <div className={style.barra_titulo}><i className="far fa-user"></i>&nbsp;&nbsp;Info.</div>
           <div id={style.infos}>
             <div className="row">
               <div className="col">Nro. do pedido</div>
