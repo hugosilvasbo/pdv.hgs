@@ -52,7 +52,6 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
   };
 
   callBackItemSelecionado = (it: IItemBusca) => {
-    //console.log({ callbackitemselecionado: it });
     this.setState({
       item_busca_api: {
         id: it.id,
