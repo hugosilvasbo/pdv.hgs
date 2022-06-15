@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../../../src/db/config/Conexao";
 import { IPessoa } from "../../../src/db/modelagem/interfaces/IPessoa";
-import msg  from "../../../src/utils/json/mensagens.json";
+import msg from "../../../src/utils/json/mensagens.json";
 
 
 export default async function handler(
@@ -18,8 +18,16 @@ export default async function handler(
 
   let result: IPessoa[] = await insert;
 
-  response.status(200).json({
-    mensagem: msg.operacao_sucesso,
-    id: result
-  });
+  if (!result) {
+    response.status(400).json({
+      mensagem: msg.falha_operacao,
+      id: 0,
+      status: 400
+    });
+  } else {
+    response.status(200).json({
+      mensagem: msg.operacao_sucesso,
+      id: result
+    });
+  }
 }

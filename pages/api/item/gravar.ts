@@ -16,8 +16,17 @@ export default async function handler(
 
     let result: IItem[] = await insert;
 
-    response.status(200).json({
-        message: json_msg.operacao_sucesso,
-        id: result
-    });
+    if (!result) {
+        response.status(400).json({
+            message: json_msg.falha_operacao,
+            id: 0,
+            status: 400
+        });
+    } else {
+        response.status(200).json({
+            message: json_msg.operacao_sucesso,
+            id: result,
+            status: 200
+        });
+    }
 }
