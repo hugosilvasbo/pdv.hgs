@@ -18,16 +18,7 @@ export default class ModalItem extends React.Component<IModal, {}> {
 
   onFinish = async () => {
     await axios.post("/api/item/gravar", this.state.item).then((response: any) => {
-      //to-do: separar para deixar generico...
-      toast(response.data.message, {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast(response.data.message);
     });
   };
 

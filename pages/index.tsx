@@ -51,6 +51,35 @@ class Home extends React.Component {
     this.setState({ total: (this.state.total += subtotal) });
   };
 
+  handleMenu = () => {
+    const itens = [
+      {
+        caption: "Pessoas",
+        onClick: () => {
+          this.setState({ showModalClienteCadastro: true });
+        },
+      },
+      {
+        caption: "Itens",
+        onClick: () => {
+          this.setState({ showModalItemCadastro: true });
+        },
+      },
+    ];
+
+    let result = itens.map((item: any) => {
+      return (
+        <li>
+          <a href="#" onClick={item.onClick}>
+            {item.caption}
+          </a>
+        </li>
+      );
+    });
+
+    return <>{result}</>;
+  };
+
   render() {
     return (
       <>
@@ -58,33 +87,7 @@ class Home extends React.Component {
           <header id={styles.box_cabecalho}>
             <div id={styles.cabecalho_titulo}>{this.state.caixa}</div>
             <div id={styles.cabecalho_menu}>
-              <ul>
-                <li>
-                  <a
-                    href="#"
-                    onClick={() => this.setState({ showModalClienteCadastro: true })}
-                  >
-                    Pessoas
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    onClick={() => this.setState({ showModalItemCadastro: true })}
-                  >
-                    Itens
-                  </a>
-                </li>
-                {/*<li>
-                  <a href="#">link 3</a>
-                </li>
-                <li>
-                  <a href="#">link 4</a>
-                </li>
-                <li>
-                  <a href="#">link 5</a>
-    </li>*/}
-              </ul>
+              <ul>{this.handleMenu()}</ul>
             </div>
           </header>
           <div id={styles.box_conteudo}>
