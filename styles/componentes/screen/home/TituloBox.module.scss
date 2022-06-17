@@ -1,6 +1,9 @@
+@import "../../../variaveis.scss";
+
 .barra_titulo {
   padding: 10px;
-  background-color: #00c146;
+  //background-color: #00c146;
+  background-color: $cor_bg_menu;
   color: white;
   font-size: 14px;
   width: 100%;
