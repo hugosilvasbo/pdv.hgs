@@ -1,14 +1,15 @@
 import React from "react";
+import ModalCadCliente from "../src/componentes/modal/cadastro/ModalCliente";
+import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
+import ModalAjuda from "../src/componentes/modal/ModalAjuda";
+import CabecalhoHome from "../src/componentes/screen/home/CabecalhoHome";
 import ConsumidorDetalhe from "../src/componentes/screen/home/ConsumidorDetalheHome";
 import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
 import TabelaProdutos from "../src/componentes/screen/home/TabelaProdutosHome";
 import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
-import { IItemPedido } from "../src/db/modelagem/interfaces/IItemPedido";
+import WrapperConteudo from "../src/componentes/screen/home/WrapperConteudo";
+import { IItemPedido } from "../src/interfaces/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
-import ModalAjuda from "../src/componentes/modal/ModalAjuda";
-import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
-import ModalCadCliente from "../src/componentes/modal/cadastro/ModalCliente";
-import CabecalhoHome from "../src/componentes/screen/home/CabecalhoHome";
 
 class Home extends React.Component {
   state = {
@@ -55,31 +56,33 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <div id={styles.box_corpo}>
+        <div className={"d-flex flex-column w-100 h-100 position-fixed p-4 color_geral"}>
           <CabecalhoHome
             key={"cabecalho"}
             onShowModalClienteCadastro={() => this.setState({ showModalClienteCadastro: true })}
             onShowModalItemCadastro={() => this.setState({ showModalItemCadastro: true })}
           />
-          <div id={styles.box_conteudo}>
-            <div id={styles.conteudo_esquerdo}>
+          <div className="d-flex flex-row w-100 h-100">
+            <div className="h-100 w-50 d-flex flex-column mr_10 primary-color shadow-sm p-3 mb-5 bg-white rounded">
               <ConsumidorDetalhe
                 caixa_status={this.state.caixa_status}
               />
-              <div className={styles.barra_titulo}><i className="fas fa-sitemap"></i>&nbsp;&nbsp;Detalhe</div>
-              <div id={styles.box_item_atual}>
-                <div className={styles.item_atual}>Por a imagem aqui dentro</div>
-                <div className={styles.item_atual}>
-                  <ProdutoDetalhe
-                    callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
-                  />
+              <WrapperConteudo title={{ type_img: "detail", label: "Detalhe" }}>
+                <div id={styles.box_item_atual}>
+                  <div className={styles.item_atual}>Por a imagem aqui dentro</div>
+                  <div className={styles.item_atual}>
+                    <ProdutoDetalhe
+                      callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
+                    />
+                  </div>
                 </div>
-              </div>
+              </WrapperConteudo>
             </div>
-            <div id={styles.conteudo_direito}>
-              <div className={styles.barra_titulo}><i className="fas fa-bookmark"></i>&nbsp;&nbsp;Produtos</div>
-              <TabelaProdutos itens={this.state.itens} />
-              <Totalizador total={this.state.total} />
+            <div className="w-50 d-flex flex-column ml_10 shadow-sm p-3 mb-5 bg-white rounded">
+              <WrapperConteudo title={{ type_img: "product", label: "Produtos" }}>
+                <TabelaProdutos itens={this.state.itens} />
+                <Totalizador total={this.state.total} />
+              </WrapperConteudo>
             </div>
           </div>
         </div>

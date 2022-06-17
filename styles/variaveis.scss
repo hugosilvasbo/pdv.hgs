@@ -1,15 +1,10 @@
 $border_radius: 10px;
 $cor_bg_menu: #00c146;
 $font_size_titulo: 14px;
-$margin: 10px;
+$margin: 20px;
 
-// propriedades gerais
-.barra_titulo {
+.padding_10_px {
   padding: 10px;
-  background-color: $cor_bg_menu;
-  color: white;
-  font-size: $font_size_titulo;
-  width: 100%;
 }
 
 .trbl_0 {

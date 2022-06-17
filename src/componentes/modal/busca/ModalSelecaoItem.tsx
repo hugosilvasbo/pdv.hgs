@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { IModal } from "../interface/IModal";
+import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
 import Modal from "../Modal";
 import jsonValue from "../../../utils/json/valores.json";
 

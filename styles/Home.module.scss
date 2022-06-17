@@ -5,13 +5,6 @@ $color_border: #b8b8b8;
 $font_size_titulo: 12px;
 $height_box_cabecalho: 35px;
 
-#box_corpo {
-  @extend .flex_column, .width_height_100_por_cento;
-  background-color: #eeeeee;
-  position: fixed;
-  padding: $margin;
-}
-
 #box_cabecalho {
   @extend .flex_row;
   border-bottom: 1px solid $color_border;
@@ -58,64 +51,44 @@ $height_box_cabecalho: 35px;
   }
 }
 
-#box_conteudo {
-  @extend .flex_row;
-  height: calc(100% - $height_box_cabecalho); // height do box_cabecalho.
+#box_item_atual {
+  @extend .flex_row, .width_height_100_por_cento, .border_radius_bottom_left_right;
+  background-color: white;
+  height: 100%;
+  overflow-y: scroll;
+  padding: $margin;
 
-  #conteudo_esquerdo {
-    @extend .flex_column, .border_radius_bottom_left_right;
-    margin-right: $margin;
+  .item_atual {
+    @extend .flex_item_center;
+    flex-wrap: wrap;
     width: 50%;
-    height: 100%;
-
-    #box_item_atual {
-      @extend .flex_row, .width_height_100_por_cento, .border_radius_bottom_left_right;
-      box-shadow: 0 0 6px rgb(182, 182, 182);
-      background-color: white;
-      height: 100%;
-      overflow-y: scroll;
-      padding: $margin;
-
-      .item_atual {
-        @extend .flex_item_center;
-        flex-wrap: wrap;
-        width: 50%;
-      }
-    }
   }
+}
 
-  #conteudo_direito {
-    @extend .flex_column, .border_radius_bottom_left_right;
-    box-shadow: 0 0 6px rgb(182, 182, 182);
-    background-color: white;
-    width: 50%;
+#box_grid_item {
+  border: 1px solid rgb(202, 202, 202);
+  color: white;
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: $margin;
 
-    #box_grid_item {
-      border: 1px solid rgb(202, 202, 202);
-      color: white;
-      flex-grow: 1;
-      overflow-y: scroll;
-      padding: $margin;
+  #table_item {
+    color: rgb(27, 27, 27);
+    width: 100%;
 
-      #table_item {
-        color: rgb(27, 27, 27);
-        width: 100%;
+    thead {
+      text-align: center;
+      font-weight: 500;
+    }
 
-        thead {
-          text-align: center;
-          font-weight: 500;
-        }
+    tbody {
+      #td_preco {
+        @extend .flex_row;
+        justify-content: flex-end;
+      }
 
-        tbody {
-          #td_preco {
-            @extend .flex_row;
-            justify-content: flex-end;
-          }
-
-          tr:nth-child(even) {
-            background-color: rgb(224, 224, 224);
-          }
-        }
+      tr:nth-child(even) {
+        background-color: rgb(224, 224, 224);
       }
     }
   }

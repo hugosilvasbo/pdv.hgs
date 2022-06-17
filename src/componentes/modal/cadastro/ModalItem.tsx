@@ -1,8 +1,8 @@
 import React from "react";
 import Modal from "../Modal";
-import { IModal } from "../interface/IModal";
+import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
 import Campo from "../../fields/Campo";
-import { IItem } from "../../../db/modelagem/interfaces/IItem";
+import { IItem } from "../../../interfaces/db/modelagem/interfaces/IItem";
 import axios from "axios";
 import json_defs from "../../../utils/json/valores.json";
 import { ToastContainer, toast } from "react-toastify";
