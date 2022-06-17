@@ -17,12 +17,12 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
   };
 
   onKeyDown = (e: any) => {
-    let componente_name = e.target.name;
+    let id = e.target.id;
 
     switch (e.keyCode) {
       // F5
       case 116:
-        if (componente_name === "edtCodigoProduto") {
+        if (id === "edtCodigoProduto") {
           this.setState({ showModal: true });
         }
         e.preventDefault();
@@ -36,6 +36,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
 
   // quando clicar no submit, executa callback do pai passando um objeto de valores.
   onSubmit = (event: any) => {
+    console.log(event.target.edtCodigoProduto.value)
     const itens: IItemPedido = {
       id: event.target.edtCodigoProduto.value,
       desconto: event.target.edtDescontoTotal.value,
@@ -68,8 +69,9 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           <div className="row">
             <div className="col">
               <Campo
-                titulo="Produto (F5)"
-                nomeDoCampo="edtCodigoProduto"
+                label="Produto (F5)"
+                id="edtCodigoProduto"
+                name="edtCodigoProduto"
                 conteudoPadrao={this.state.item_busca_api.descricao}
               />
             </div>
@@ -111,6 +113,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           </div>
           <button type="submit" hidden={true} />
         </form>
+
         <ModalSelecaoItem
           onClose={() => this.setState({ showModal: false })}
           showModal={this.state.showModal}

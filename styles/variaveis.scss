@@ -1,9 +1,6 @@
 $border_radius: 10px;
-
-$cor_bg_menu: #699ada;
-
+$cor_bg_menu: #00c146;
 $font_size_titulo: 14px;
-
 $margin: 10px;
 
 // propriedades gerais
@@ -57,4 +54,8 @@ $margin: 10px;
   @extend .flex_row;
   align-items: center;
   justify-content: center;
+}
+
+.text_align_center {
+  text-align: center;
 }

@@ -8,10 +8,11 @@ import styles from "../styles/Home.module.scss";
 import ModalAjuda from "../src/componentes/modal/ModalAjuda";
 import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
 import ModalCadCliente from "../src/componentes/modal/cadastro/ModalCliente";
+import CabecalhoHome from "../src/componentes/screen/home/CabecalhoHome";
 
 class Home extends React.Component {
   state = {
-    caixa: "CAIXA ABERTO",
+    caixa_status: "CAIXA ABERTO",
     itens: [] as IItemPedido[],
     total: 0,
     showModalAjuda: false,
@@ -43,7 +44,7 @@ class Home extends React.Component {
   callBackProdutoDetalheHome = (it: IItemPedido) => {
     // com o objeto recebido do ProdutoDetalheHome, é concatenado num array de state que passa esse state para o componente de preenchimento do grid.
     let subtotal = (it.preco ? it.preco : 0) * (it.quantidade ? it.quantidade : 0);
-
+    console.log(it)
     it.sequencia = this.state.itens.length + 1;
     it.subtotal = subtotal;
 
@@ -51,47 +52,20 @@ class Home extends React.Component {
     this.setState({ total: (this.state.total += subtotal) });
   };
 
-  handleMenu = () => {
-    const itens = [
-      {
-        caption: "Pessoas",
-        onClick: () => {
-          this.setState({ showModalClienteCadastro: true });
-        },
-      },
-      {
-        caption: "Itens",
-        onClick: () => {
-          this.setState({ showModalItemCadastro: true });
-        },
-      },
-    ];
-
-    let result = itens.map((item: any, index: number) => {
-      return (
-        <li key={index}>
-          <a href="#" onClick={item.onClick}>
-            {item.caption}
-          </a>
-        </li>
-      );
-    });
-
-    return <>{result}</>;
-  };
-
   render() {
     return (
       <>
         <div id={styles.box_corpo}>
-          <header id={styles.box_cabecalho}>
-            <div id={styles.cabecalho_titulo}>{this.state.caixa}</div>
-            <div id={styles.cabecalho_menu}>
-              <ul>{this.handleMenu()}</ul>
-            </div>
-          </header>
+          <CabecalhoHome
+            key={"cabecalho"}
+            onShowModalClienteCadastro={() => this.setState({ showModalClienteCadastro: true })}
+            onShowModalItemCadastro={() => this.setState({ showModalItemCadastro: true })}
+          />
           <div id={styles.box_conteudo}>
             <div id={styles.conteudo_esquerdo}>
+              <ConsumidorDetalhe
+                caixa_status={this.state.caixa_status}
+              />
               <div className={styles.barra_titulo}><i className="fas fa-sitemap"></i>&nbsp;&nbsp;Detalhe</div>
               <div id={styles.box_item_atual}>
                 <div className={styles.item_atual}>Por a imagem aqui dentro</div>
@@ -101,7 +75,6 @@ class Home extends React.Component {
                   />
                 </div>
               </div>
-              <ConsumidorDetalhe />
             </div>
             <div id={styles.conteudo_direito}>
               <div className={styles.barra_titulo}><i className="fas fa-bookmark"></i>&nbsp;&nbsp;Produtos</div>

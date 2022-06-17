@@ -39,14 +39,16 @@ export default class ModalCliente extends React.Component<IModal, {}> {
           <TabCliente />
 
           <Campo
-            nomeDoCampo="edtRazaoSocial"
-            titulo="Razão social"
+            label="Razão social"
+            id="edtRazaoSocial"
+            name="edtRazaoSocial"
             onChangeValue={this.handleRazaoSocialChange}
             maxLength={json_valor.tabela_bd_size.pessoa.razao_social}
           />
           <Campo
-            nomeDoCampo="edtFantasia"
-            titulo="Fantasia"
+            label="Fantasia"
+            id="edtFantasia"
+            name="edtFantasia"
             onChangeValue={this.handleFantasiaChange}
             maxLength={json_valor.tabela_bd_size.pessoa.fantasia}
           />

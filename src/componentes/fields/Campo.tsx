@@ -1,12 +1,14 @@
+import TextField from "@mui/material/TextField";
 import React from "react";
 import styles from "../../../styles/componentes/campo/Campo.module.scss";
 
 interface ICampo {
-  titulo: string;
-  nomeDoCampo: string;
+  label: string;
   conteudoPadrao?: any;
   onChangeValue?: any;
   maxLength?: number;
+  name: string;
+  id: string
 }
 
 export default class Campo extends React.Component<ICampo, {}> {
@@ -20,7 +22,15 @@ export default class Campo extends React.Component<ICampo, {}> {
   render() {
     return (
       <>
+
         <div className={styles.flex_column}>
+          <TextField id={this.props.id}
+            name={this.props.name}
+            label={this.props.label}
+            onChange={this.handleChange}
+            variant="standard" />
+        </div>
+        {/*<div className={styles.flex_column}>
           <label className={styles.titulo}>{this.props.titulo}</label>
           <input
             autoComplete="off"
@@ -31,7 +41,7 @@ export default class Campo extends React.Component<ICampo, {}> {
             onChange={this.handleChange}
             type="text"
           ></input>
-        </div>
+    </div>*/}
       </>
     );
   }

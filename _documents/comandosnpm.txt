@@ -3,3 +3,6 @@ npm uninstall <package name>
 
 -- font awesome
 npm i --save @fortawesome/fontawesome-svg-core
+
+-- font roboto
+npm install typeface-roboto --save

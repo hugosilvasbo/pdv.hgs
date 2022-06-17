@@ -1,19 +1,25 @@
 @import "variaveis.scss";
-$height_box_cabecalho: 35px;
+
+$color_header: #888888;
+$color_border: #b8b8b8;
 $font_size_titulo: 12px;
+$height_box_cabecalho: 35px;
 
 #box_corpo {
   @extend .flex_column, .width_height_100_por_cento;
-  background-color: rgb(243, 243, 243);
+  background-color: #eeeeee;
   position: fixed;
+  padding: $margin;
 }
 
 #box_cabecalho {
   @extend .flex_row;
-  background-color: $cor_bg_menu;
-  color: #fff;
+  border-bottom: 1px solid $color_border;
+  color: $color_header;
   font-size: $font_size_titulo;
+  height: 70px;
   justify-content: space-between;
+  margin-bottom: $margin;
 
   #cabecalho_titulo {
     @extend .flex_row;
@@ -40,7 +46,7 @@ $font_size_titulo: 12px;
     }
 
     li a {
-      color: #fff;
+      color: $color_header;
       margin: 0;
       padding: 5px 10px;
       text-decoration: none;
@@ -55,12 +61,11 @@ $font_size_titulo: 12px;
 #box_conteudo {
   @extend .flex_row;
   height: calc(100% - $height_box_cabecalho); // height do box_cabecalho.
-  padding: $margin;
 
   #conteudo_esquerdo {
     @extend .flex_column, .border_radius_bottom_left_right;
     margin-right: $margin;
-    width: 60%;
+    width: 50%;
     height: 100%;
 
     #box_item_atual {
@@ -83,7 +88,7 @@ $font_size_titulo: 12px;
     @extend .flex_column, .border_radius_bottom_left_right;
     box-shadow: 0 0 6px rgb(182, 182, 182);
     background-color: white;
-    width: 40%;
+    width: 50%;
 
     #box_grid_item {
       border: 1px solid rgb(202, 202, 202);

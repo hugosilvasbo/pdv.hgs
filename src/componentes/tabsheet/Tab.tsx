@@ -1,15 +1,10 @@
+import { Box, Tabs } from "@mui/material";
 import React, { useEffect } from "react";
 
-interface ITab {
-  tabs: any;
-}
-
-const Tab = (props: ITab) => {
+const Tab = (props: any) => {
   return (
     <>
-      {props.tabs.map((tab: any) => {
-        return tab;
-      })}
+      
     </>
   );
 };

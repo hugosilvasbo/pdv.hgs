@@ -6,7 +6,7 @@ const TabCliente = (props: any) => {
   const tab_detalhe = <div key={"detalhe"}>Tab Detalhe do Cliente</div>;
 
   return (
-    <Tab tabs={[tab_busca, tab_detalhe]}></Tab>
+    <Tab></Tab>
   );
 };
 
