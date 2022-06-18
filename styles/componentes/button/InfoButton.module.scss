@@ -1,5 +1,27 @@
-@import "../../variaveis.scss";
+@import "../../Generics.scss";
 
 #box {
-  background-color: $bg_color;
+  @extend .d_flex_row;
+  background-color: $cor_bg_global;
+  color: $font_color_titulo;
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+
+  .img {
+    @extend .dflex_row_align_justify_center;
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  .title {
+    font-size: $font_size_titulo;
+    margin-left: 8px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-left: 8px;
+  }
 }

@@ -1,4 +1,4 @@
-@import "../../variaveis.scss";
+@import "../../Generics.scss";
 
 $border: 1px solid #eee;
 $height_header: 40px;
@@ -6,7 +6,7 @@ $height_footer: 40px;
 $padding: 10px;
 
 .modal {
-  @extend .flex_item_center, .trbl_0;
+  @extend .dflex_row_align_justify_center, .trbl_0;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 40px;
   position: fixed;
@@ -19,7 +19,7 @@ $padding: 10px;
     width: 100%;
 
     .modal_header {
-      @extend .flex_item_center;
+      @extend .dflex_row_align_justify_center;
       height: $height_header;
       border-bottom: $border;
 
@@ -37,7 +37,7 @@ $padding: 10px;
     }
 
     .modal_footer {
-      @extend .flex_item_center;
+      @extend .dflex_row_align_justify_center;
       justify-content: flex-end;
       height: $height_footer;
       bottom: 0;

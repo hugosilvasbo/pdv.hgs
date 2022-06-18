@@ -1,27 +1,47 @@
-@import "variaveis.scss";
+@import "Generics.scss";
 
-$color_header: #888888;
 $color_border: #b8b8b8;
 $font_size_titulo: 12px;
 $height_box_cabecalho: 35px;
 
+.home_body {
+  @extend .d_flex_col, .w_100_h_100;
+  position: fixed;
+  padding: 10px;
+  background-color: $cor_bg_global;
+}
+
+.box_esquerdo {
+  @extend .d_flex_col;
+  width: calc(50% - 5px);
+  height: 100%;
+  margin-right: 5px;
+}
+
+.box_direito {
+  @extend .d_flex_col;
+  width: calc(50% - 5px);
+  margin-left: 5px;
+  height: 100%;
+}
+
 #box_cabecalho {
-  @extend .flex_row;
+  @extend .d_flex_row;
   border-bottom: 1px solid $color_border;
-  color: $color_header;
+  color: $font_color_titulo;
   font-size: $font_size_titulo;
   height: 70px;
   justify-content: space-between;
-  margin-bottom: $margin;
+  margin-bottom: $margin_20px;
 
   #cabecalho_titulo {
-    @extend .flex_row;
+    @extend .d_flex_row;
     align-items: center;
     margin-left: 15px;
   }
 
   #cabecalho_menu {
-    @extend .flex_row;
+    @extend .d_flex_row;
     justify-content: flex-end;
     margin-right: 15px;
 
@@ -39,7 +59,7 @@ $height_box_cabecalho: 35px;
     }
 
     li a {
-      color: $color_header;
+      color: $font_color_titulo;
       margin: 0;
       padding: 5px 10px;
       text-decoration: none;
@@ -52,14 +72,14 @@ $height_box_cabecalho: 35px;
 }
 
 #box_item_atual {
-  @extend .flex_row, .width_height_100_por_cento, .border_radius_bottom_left_right;
+  @extend .d_flex_row, .w_100_h_100;
   background-color: white;
   height: 100%;
   overflow-y: scroll;
-  padding: $margin;
+  padding: $margin_20px;
 
   .item_atual {
-    @extend .flex_item_center;
+    @extend .dflex_row_align_justify_center;
     flex-wrap: wrap;
     width: 50%;
   }
@@ -70,7 +90,7 @@ $height_box_cabecalho: 35px;
   color: white;
   flex-grow: 1;
   overflow-y: scroll;
-  padding: $margin;
+  padding: $margin_20px;
 
   #table_item {
     color: rgb(27, 27, 27);
@@ -83,7 +103,7 @@ $height_box_cabecalho: 35px;
 
     tbody {
       #td_preco {
-        @extend .flex_row;
+        @extend .d_flex_row;
         justify-content: flex-end;
       }
 

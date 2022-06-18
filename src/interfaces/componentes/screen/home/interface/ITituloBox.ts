@@ -1,4 +1,4 @@
-export type TypeImages = "detail" | "client" | "seller" | "product" | "";
+import { TypeImages } from "../../../../../types/TypeImages";
 
 export interface ITituloBox {
     type_img: TypeImages,

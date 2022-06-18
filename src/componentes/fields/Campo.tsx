@@ -23,14 +23,14 @@ export default class Campo extends React.Component<ICampo, {}> {
     return (
       <>
 
-        <div className={styles.flex_column}>
+        <div className={styles.d_flex_col}>
           <TextField id={this.props.id}
             name={this.props.name}
             label={this.props.label}
             onChange={this.handleChange}
             variant="standard" />
         </div>
-        {/*<div className={styles.flex_column}>
+        {/*<div className={styles.d_flex_col}>
           <label className={styles.titulo}>{this.props.titulo}</label>
           <input
             autoComplete="off"

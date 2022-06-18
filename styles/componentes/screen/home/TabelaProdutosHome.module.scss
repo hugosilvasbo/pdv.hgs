@@ -1,11 +1,11 @@
-@import "../../../variaveis.scss";
+@import "../../../Generics.scss";
 
 #box_grid_item {
   border: 1px solid rgb(202, 202, 202);
   color: white;
   flex-grow: 1;
   overflow-y: scroll;
-  padding: $margin;
+  padding: $margin_20px;
 
   // #table_item {
   //   color: rgb(27, 27, 27);
@@ -18,7 +18,7 @@
 
   //   tbody {
   //     #td_preco {
-  //       @extend .flex_row;
+  //       @extend .d_flex_row;
   //       justify-content: flex-end;
   //     }
 

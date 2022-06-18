@@ -56,14 +56,14 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <div className={"d-flex flex-column w-100 h-100 position-fixed p-4 color_geral"}>
+        <div className={styles.home_body}>
           <CabecalhoHome
             key={"cabecalho"}
             onShowModalClienteCadastro={() => this.setState({ showModalClienteCadastro: true })}
             onShowModalItemCadastro={() => this.setState({ showModalItemCadastro: true })}
           />
           <div className="d-flex flex-row w-100 h-100">
-            <div className="h-100 w-50 d-flex flex-column mr_10 primary-color shadow-sm p-3 mb-5 bg-white rounded">
+            <div className={styles.box_esquerdo}>
               <ConsumidorDetalhe
                 caixa_status={this.state.caixa_status}
               />
@@ -78,7 +78,7 @@ class Home extends React.Component {
                 </div>
               </WrapperConteudo>
             </div>
-            <div className="w-50 d-flex flex-column ml_10 shadow-sm p-3 mb-5 bg-white rounded">
+            <div className={styles.box_direito}>
               <WrapperConteudo title={{ type_img: "product", label: "Produtos" }}>
                 <TabelaProdutos itens={this.state.itens} />
                 <Totalizador total={this.state.total} />

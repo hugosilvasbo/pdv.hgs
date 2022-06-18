@@ -1,0 +1,38 @@
+//************************ variáveis ************************
+$cor_bg_menu: #00c146;
+$cor_bg_global: #eeeeee;
+
+$font_size_titulo: 14px;
+$font_color_titulo: #727272;
+
+$margin_20px: 20px;
+
+//************************ funções ************************
+
+.d_flex_col {
+  display: flex;
+  flex-direction: column;
+}
+
+.d_flex_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.dflex_row_align_justify_center {
+  @extend .d_flex_row;
+  align-items: center;
+  justify-content: center;
+}
+
+.w_100_h_100 {
+  width: 100%;
+  height: 100%;
+}
+
+.trbl_0 {
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+}
