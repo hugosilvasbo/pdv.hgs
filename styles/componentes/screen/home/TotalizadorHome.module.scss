@@ -1,9 +1,14 @@
 @import "../../../Generics.scss";
 
 #box_total {
+  @extend .d_flex_col;
   background-color: $cor_bg_menu;
   color: white;
-  padding: $margin_20px;
+  height: 60px;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
 
   #total {
     @extend .d_flex_row;

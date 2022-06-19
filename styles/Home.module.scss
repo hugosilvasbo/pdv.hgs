@@ -14,8 +14,8 @@ $height_box_cabecalho: 35px;
 .box_esquerdo {
   @extend .d_flex_col;
   width: calc(50% - 5px);
-  height: 100%;
   margin-right: 5px;
+  height: 100%;
 }
 
 .box_direito {
@@ -88,7 +88,6 @@ $height_box_cabecalho: 35px;
 #box_grid_item {
   border: 1px solid rgb(202, 202, 202);
   color: white;
-  flex-grow: 1;
   overflow-y: scroll;
   padding: $margin_20px;
 

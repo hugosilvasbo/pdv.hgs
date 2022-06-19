@@ -67,7 +67,7 @@ class Home extends React.Component {
               <ConsumidorDetalhe
                 caixa_status={this.state.caixa_status}
               />
-              <WrapperConteudo title={{ type_img: "detail", label: "Detalhe" }}>
+              <WrapperConteudo title={{ type_img: "detail", label: "Detalhe" }} className="">
                 <div id={styles.box_item_atual}>
                   <div className={styles.item_atual}>Por a imagem aqui dentro</div>
                   <div className={styles.item_atual}>
@@ -79,7 +79,7 @@ class Home extends React.Component {
               </WrapperConteudo>
             </div>
             <div className={styles.box_direito}>
-              <WrapperConteudo title={{ type_img: "product", label: "Produtos" }}>
+              <WrapperConteudo className="" title={{ type_img: "product", label: "Produtos" }}>
                 <TabelaProdutos itens={this.state.itens} />
                 <Totalizador total={this.state.total} />
               </WrapperConteudo>

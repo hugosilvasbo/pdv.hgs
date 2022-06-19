@@ -4,19 +4,18 @@ import TituloBox from "./TituloBox";
 interface IConteudoBox {
     title: ITituloBox;
     children: any;
+    className?: string
 }
 
 const WrapperConteudo = (props: IConteudoBox) => {
     return (
-        <>
-            <div className="bg-light p-3">
-                <TituloBox
-                    label={props.title.label}
-                    type_img={props.title.type_img}
-                />
-                {props.children}
-            </div>
-        </>
+        <div className={props.className}>
+            <TituloBox
+                label={props.title.label}
+                type_img={props.title.type_img}
+            />
+            {props.children}
+        </div>
     )
 }
 
