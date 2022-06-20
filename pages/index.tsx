@@ -1,13 +1,13 @@
 import React from "react";
-import ModalCadCliente from "../src/componentes/modal/cadastro/ModalPessoa";
 import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
+import ModalCadCliente from "../src/componentes/modal/cadastro/ModalPessoa";
 import ModalAjuda from "../src/componentes/modal/ModalAjuda";
 import CabecalhoHome from "../src/componentes/screen/home/CabecalhoHome";
 import ConsumidorDetalhe from "../src/componentes/screen/home/ConsumidorDetalheHome";
 import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
 import TabelaProdutos from "../src/componentes/screen/home/TabelaProdutosHome";
+import TituloBox from "../src/componentes/screen/home/TituloBox";
 import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
-import WrapperConteudo from "../src/componentes/screen/home/WrapperConteudo";
 import { IItemPedido } from "../src/interfaces/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
 
@@ -69,26 +69,24 @@ class Home extends React.Component {
             key={"cabecalho"}
             onShowModalItemCadastro={() => this.setState({ showModalItemCadastro: true })}
           />
-          <div className="d-flex flex-row w-100 h-100">
+          <div className={styles.box_content}>
             <div className={styles.box_esquerdo}>
               <ConsumidorDetalhe
                 caixa_status={this.state.caixa_status}
               />
-              <WrapperConteudo className="h-100" title={{ type_img: "detail", label: "Detalhe" }} >
-                <div id={styles.box_item_atual}>
-                  <div className={styles.item_atual}>Por a imagem aqui dentro</div>
-                  <div className={styles.item_atual}>
-                    <ProdutoDetalhe
-                      callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
-                    />
-                  </div>
+              <TituloBox label={"Detalhe"} type_img={"detail"} />
+              <div id={styles.box_item_atual}>
+                <div className={styles.item_atual}>Por a imagem aqui dentro</div>
+                <div className={styles.item_atual}>
+                  <ProdutoDetalhe
+                    callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
+                  />
                 </div>
-              </WrapperConteudo>
+              </div>
             </div>
             <div className={styles.box_direito}>
-              <WrapperConteudo className="h-100" title={{ type_img: "product", label: "Produtos" }}>
-                <TabelaProdutos itens={this.state.itens} />
-              </WrapperConteudo>
+              <TituloBox label={"Produtos"} type_img={"product"} />
+              <TabelaProdutos itens={this.state.itens} />
               <Totalizador total={this.state.total} />
             </div>
           </div>
