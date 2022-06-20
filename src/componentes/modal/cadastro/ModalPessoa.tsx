@@ -1,13 +1,11 @@
-import React from "react";
-import { IPessoa } from "../../../interfaces/db/modelagem/interfaces/IPessoa";
-import Campo from "../../fields/Campo";
-import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
-import Modal from "../Modal";
 import axios from "axios";
-import json_valor from "../../../utils/json/valores.json";
-import TabCliente from "../../tabsheet/cadastro/TabCliente"
+import React from "react";
+import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
+import { IPessoa } from "../../../interfaces/db/modelagem/interfaces/IPessoa";
+import TabCliente from "../../tabsheet/cadastro/TabCliente";
+import Modal from "../Modal";
 
-export default class ModalCliente extends React.Component<IModal, {}> {
+export default class ModalPessoa extends React.Component<IModal, {}> {
   state = {
     pessoa: {} as IPessoa,
   };
@@ -29,28 +27,15 @@ export default class ModalCliente extends React.Component<IModal, {}> {
     return (
       <>
         <Modal
-          title="Cadastro de clientes"
+          title="Pessoas"
           onClose={this.props.onClose}
           onFinish={this.onFinish}
           showModal={this.props.showModal}
           btnFinishCaption={"Gravar"}
         >
-          {/** tab cliente teste, aprimorar depois... */}
-          <TabCliente />
-
-          <Campo
-            label="Razão social"
-            id="edtRazaoSocial"
-            name="edtRazaoSocial"
-            onChangeValue={this.handleRazaoSocialChange}
-            maxLength={json_valor.tabela_bd_size.pessoa.razao_social}
-          />
-          <Campo
-            label="Fantasia"
-            id="edtFantasia"
-            name="edtFantasia"
-            onChangeValue={this.handleFantasiaChange}
-            maxLength={json_valor.tabela_bd_size.pessoa.fantasia}
+          <TabCliente
+            handleFantasiaChange={this.handleFantasiaChange}
+            handleRazaoSocialChange={this.handleRazaoSocialChange}
           />
         </Modal>
       </>

@@ -24,24 +24,18 @@ export default class Campo extends React.Component<ICampo, {}> {
       <>
 
         <div className={styles.d_flex_col}>
-          <TextField id={this.props.id}
-            name={this.props.name}
-            label={this.props.label}
-            onChange={this.handleChange}
-            variant="standard" />
-        </div>
-        {/*<div className={styles.d_flex_col}>
-          <label className={styles.titulo}>{this.props.titulo}</label>
+          <label className={styles.titulo}>{this.props.label}</label>
           <input
             autoComplete="off"
             className={styles.campo}
             defaultValue={this.props.conteudoPadrao}
             maxLength={this.props.maxLength ? this.props.maxLength : undefined}
-            name={this.props.nomeDoCampo}
+            name={this.props.name}
             onChange={this.handleChange}
             type="text"
+            id={this.props.id}
           ></input>
-    </div>*/}
+        </div>
       </>
     );
   }

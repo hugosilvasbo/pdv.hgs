@@ -9,19 +9,20 @@ $height_box_cabecalho: 35px;
   position: fixed;
   padding: 10px;
   background-color: $cor_bg_global;
+  overflow-y: scroll;
 }
 
 .box_esquerdo {
   @extend .d_flex_col;
   width: calc(50% - 5px);
-  margin-right: 5px;
+  margin-right: 10px;
   height: 100%;
 }
 
 .box_direito {
   @extend .d_flex_col;
   width: calc(50% - 5px);
-  margin-left: 5px;
+  margin-left: 10px;
   height: 100%;
 }
 

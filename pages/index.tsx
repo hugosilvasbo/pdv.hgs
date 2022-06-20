@@ -1,5 +1,5 @@
 import React from "react";
-import ModalCadCliente from "../src/componentes/modal/cadastro/ModalCliente";
+import ModalCadCliente from "../src/componentes/modal/cadastro/ModalPessoa";
 import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
 import ModalAjuda from "../src/componentes/modal/ModalAjuda";
 import CabecalhoHome from "../src/componentes/screen/home/CabecalhoHome";
@@ -18,12 +18,20 @@ class Home extends React.Component {
     total: 0,
     showModalAjuda: false,
     showModalItemCadastro: false,
-    showModalClienteCadastro: false,
+    showModalPessoaCadastro: false,
   };
 
   componentDidMount = () => {
     const onKeyDown = (e: any) => {
       switch (e.keyCode) {
+        // F2
+        case 113:
+          this.setState({ showModalPessoaCadastro: true })
+          break;
+        // F4
+        case 115:
+          alert("Abrir o modal do cliente mas filtrando vendedor...");
+          break;
         // F10
         case 121:
           alert("F10 pressionado... Abrir tela de finalização!");
@@ -59,7 +67,6 @@ class Home extends React.Component {
         <div className={styles.home_body}>
           <CabecalhoHome
             key={"cabecalho"}
-            onShowModalClienteCadastro={() => this.setState({ showModalClienteCadastro: true })}
             onShowModalItemCadastro={() => this.setState({ showModalItemCadastro: true })}
           />
           <div className="d-flex flex-row w-100 h-100">
@@ -67,7 +74,7 @@ class Home extends React.Component {
               <ConsumidorDetalhe
                 caixa_status={this.state.caixa_status}
               />
-              <WrapperConteudo title={{ type_img: "detail", label: "Detalhe" }} className="">
+              <WrapperConteudo className="h-100" title={{ type_img: "detail", label: "Detalhe" }} >
                 <div id={styles.box_item_atual}>
                   <div className={styles.item_atual}>Por a imagem aqui dentro</div>
                   <div className={styles.item_atual}>
@@ -79,10 +86,10 @@ class Home extends React.Component {
               </WrapperConteudo>
             </div>
             <div className={styles.box_direito}>
-              <WrapperConteudo className="" title={{ type_img: "product", label: "Produtos" }}>
+              <WrapperConteudo className="h-100" title={{ type_img: "product", label: "Produtos" }}>
                 <TabelaProdutos itens={this.state.itens} />
-                <Totalizador total={this.state.total} />
               </WrapperConteudo>
+              <Totalizador total={this.state.total} />
             </div>
           </div>
         </div>
@@ -99,8 +106,8 @@ class Home extends React.Component {
         />
 
         <ModalCadCliente
-          onClose={() => this.setState({ showModalClienteCadastro: false })}
-          showModal={this.state.showModalClienteCadastro}
+          onClose={() => this.setState({ showModalPessoaCadastro: false })}
+          showModal={this.state.showModalPessoaCadastro}
         />
       </>
     );

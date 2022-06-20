@@ -27,7 +27,7 @@ export default class ModalAjuda extends React.Component<IModal, {}> {
             <br />
             <h3>Aprender fazer o esquema de loading enquanto algo carrega/inclui...</h3>
             <br />
-            Melhorar o componente do botao porque ta mto simples... e tbm tratar o componente numerico, mudar para State igual fiz com o esquema no ModalCliente , item etc! ^^
+            Melhorar o componente do botao porque ta mto simples... e tbm tratar o componente numerico, mudar para State igual fiz com o esquema no ModalPessoa , item etc! ^^
             <br />
             Etc...
             <br />

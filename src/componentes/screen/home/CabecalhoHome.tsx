@@ -1,15 +1,23 @@
 import React from "react";
 import style from "../../../../styles/Home.module.scss"
+import Image from 'next/image'
+import logo_hgs from "../../../../public/banner.png";
 
 interface ICabecalhoHome {
-    onShowModalClienteCadastro: any,
     onShowModalItemCadastro: any
 }
 
 const CabecalhoHome = (props: ICabecalhoHome) => {
     return (
         <header id={style.box_cabecalho}>
-            <div id={style.cabecalho_titulo}>PDV.HGS</div>
+            <div id={style.cabecalho_titulo}>
+                <Image
+                    src={logo_hgs}
+                    height={50}
+                    width={128}
+                />
+
+            </div>
             <div id={style.cabecalho_menu}>
                 <ul>{handleMenu(props)}</ul>
             </div>
@@ -19,12 +27,6 @@ const CabecalhoHome = (props: ICabecalhoHome) => {
 
 function handleMenu(props: ICabecalhoHome): React.ReactNode {
     const itens = [
-        {
-            caption: "Pessoas",
-            onClick: () => {
-                props.onShowModalClienteCadastro()
-            },
-        },
         {
             caption: "Itens",
             onClick: () => {
