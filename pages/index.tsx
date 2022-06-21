@@ -10,7 +10,6 @@ import TituloBox from "../src/componentes/screen/home/TituloBox";
 import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import { IItemPedido } from "../src/interfaces/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
-import batata from "../public/batata.jpg";
 import Image from "next/image";
 
 class Home extends React.Component {
@@ -80,11 +79,7 @@ class Home extends React.Component {
               <div className="w-100 h-100 d-flex flex-row bg-light overflow-auto p-2">
                 <div className="row">
                   <div className="col">
-                    <Image
-                      src={batata}
-                      width={300}
-                      height={300}
-                    />
+                    // Incluir a imagem.
                   </div>
                   <div className="col">
                     <ProdutoDetalhe
