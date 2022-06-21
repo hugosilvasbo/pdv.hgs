@@ -78,18 +78,19 @@ class Home extends React.Component {
               />
               <TituloBox label={"Detalhe"} type_img={"detail"} />
               <div className="w-100 h-100 d-flex flex-row bg-light overflow-auto p-2">
-                <div className={styles.item_atual}>
-                  <Image
-                    src={batata}
-                    width={300}
-                    height={300}
-                  />
-
-                </div>
-                <div className={styles.item_atual}>
-                  <ProdutoDetalhe
-                    callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
-                  />
+                <div className="row">
+                  <div className="col">
+                    <Image
+                      src={batata}
+                      width={300}
+                      height={300}
+                    />
+                  </div>
+                  <div className="col">
+                    <ProdutoDetalhe
+                      callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
