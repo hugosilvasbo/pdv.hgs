@@ -10,10 +10,6 @@ $radius: 10px;
   border-top-left-radius: $radius;
   border-top-right-radius: $radius;
 
-  &:active {
-    background-color: black;
-  }
-
   .btn_tab {
     border: none;
     border-bottom: 2px solid #eeeeee;
