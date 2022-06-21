@@ -6,27 +6,28 @@ $font_size_titulo: 12px;
 .home_body {
   @extend .d_flex_col, .w_100_h_100;
   position: fixed;
-  padding: 10px;
+  padding: 1rem;
   background-color: $cor_bg_global;
-  overflow-y: scroll;
 
   .box_content {
     @extend .d_flex_row;
     width: 100%;
     height: calc(100% - 85px);
 
-    .box_esquerdo {
+    .box_ambos {
       @extend .d_flex_col;
-      width: calc(50% - 5px);
-      margin-right: 10px;
       height: 100%;
+      width: calc(50% - 5px);
+    }
+
+    .box_esquerdo {
+      @extend .box_ambos;
+      margin-right: 10px;
     }
 
     .box_direito {
-      @extend .d_flex_col;
-      width: calc(50% - 5px);
+      @extend .box_ambos;
       margin-left: 10px;
-      height: 100%;
     }
   }
 
@@ -73,20 +74,6 @@ $font_size_titulo: 12px;
       li a:hover {
         color: rgb(9, 87, 139);
       }
-    }
-  }
-
-  #box_item_atual {
-    @extend .d_flex_row, .w_100_h_100;
-    background-color: white;
-    height: 100%;
-    overflow-y: scroll;
-    padding: $margin_20px;
-
-    .item_atual {
-      @extend .dflex_row_align_justify_center;
-      flex-wrap: wrap;
-      width: 50%;
     }
   }
 }

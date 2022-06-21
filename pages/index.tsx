@@ -10,6 +10,8 @@ import TituloBox from "../src/componentes/screen/home/TituloBox";
 import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
 import { IItemPedido } from "../src/interfaces/db/modelagem/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
+import batata from "../public/batata.jpg";
+import Image from "next/image";
 
 class Home extends React.Component {
   state = {
@@ -75,8 +77,15 @@ class Home extends React.Component {
                 caixa_status={this.state.caixa_status}
               />
               <TituloBox label={"Detalhe"} type_img={"detail"} />
-              <div id={styles.box_item_atual}>
-                <div className={styles.item_atual}>Por a imagem aqui dentro</div>
+              <div className="w-100 h-100 d-flex flex-row bg-light overflow-auto p-2">
+                <div className={styles.item_atual}>
+                  <Image
+                    src={batata}
+                    width={300}
+                    height={300}
+                  />
+
+                </div>
                 <div className={styles.item_atual}>
                   <ProdutoDetalhe
                     callBackProdutoDetalheHome={this.callBackProdutoDetalheHome}
