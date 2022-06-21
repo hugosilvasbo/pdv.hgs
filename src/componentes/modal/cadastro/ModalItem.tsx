@@ -33,7 +33,7 @@ export default class ModalItem extends React.Component<IModal, {}> {
           btnFinishCaption={"Gravar"}
         >
           <Campo
-            label="Descrição do item"
+            caption="Descrição do item"
             id="edtDescricao"
             name="edtDescricao"
             maxLength={json_defs.tabela_bd_size.item.descricao}

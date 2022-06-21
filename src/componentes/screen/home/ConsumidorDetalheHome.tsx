@@ -16,7 +16,7 @@ export class ConsumidorDetalheHome extends React.Component<IConsumidorDetalheHom
     return (
       <>
         <TituloBox label={this.props.caixa_status} type_img={""} />
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between mb-3">
           <InfoButton title="Cliente (F2)" subtitle="" icon="client" onClickItem={() => this.setState({ showModalPessoa: true })} />
           <InfoButton title="Vendedor (F4)" subtitle="" icon="seller" onClickItem={() => console.log("Clicou no vendedor...")} />
         </div>

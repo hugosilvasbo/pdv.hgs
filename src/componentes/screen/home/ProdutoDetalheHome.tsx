@@ -69,7 +69,7 @@ export class ProdutoDetalheHome extends React.Component<IProdutoDetalheHome, {}>
           <div className="row">
             <div className="col">
               <Campo
-                label="Produto (F5)"
+                caption="Produto (F5)"
                 id="edtCodigoProduto"
                 name="edtCodigoProduto"
                 conteudoPadrao={this.state.item_busca_api.descricao}

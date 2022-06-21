@@ -1,4 +1,5 @@
 import React from "react";
+import style from "../../../styles/componentes/tabsheet/Tab.module.scss";
 
 interface ITab {
   id: string,
@@ -18,7 +19,7 @@ export default class Tab extends React.Component<IProps, {}> {
 
   makeTabs = () => {
     let tabs = this.props.tabs.map((it: ITab) => {
-      return <button onClick={this.clickTab} id={it.id}>
+      return <button className={this.state.current_id === it.id ? style.btn_tab_clicked : style.btn_tab} onClick={this.clickTab} id={it.id}>
         {it.caption}
       </button>
     });
@@ -28,7 +29,7 @@ export default class Tab extends React.Component<IProps, {}> {
 
   makeContent = () => {
     let content = this.props.tabs.map((it: ITab) => {
-      return <div id={it.id} className={this.state.current_id === it.id ? "d-block" : "d-none"}>
+      return <div id={it.id} className={(this.state.current_id === it.id ? "h-100 w-100 d-block" : "h-100 w-100 d-none")}>
         {it.content}
       </div>
     })
@@ -37,6 +38,7 @@ export default class Tab extends React.Component<IProps, {}> {
   }
 
   clickTab = (e: any) => {
+    console.log(e.target)
     this.setState({ current_id: e.target.id })
   }
 
@@ -47,12 +49,12 @@ export default class Tab extends React.Component<IProps, {}> {
   render() {
     return (
       <>
-        <div className="bg-success p-2">
+        <div className={style.box_tab}>
           {
             this.makeTabs()
           }
         </div>
-        <div className="p-2">
+        <div className={style.content}>
           {
             this.makeContent()
           }

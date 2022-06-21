@@ -1,14 +1,14 @@
 @import "../../Generics.scss";
 
 $border: 1px solid #eee;
-$height_header: 40px;
+$height_header: 25px;
 $height_footer: 40px;
 $padding: 10px;
 
 .modal {
   @extend .dflex_row_align_justify_center, .trbl_0;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5rem;
   position: fixed;
 
   .modal_content {
@@ -24,7 +24,7 @@ $padding: 10px;
       border-bottom: $border;
 
       .modal_title {
-        font-size: 18px;
+        font-size: 14px;
       }
     }
 

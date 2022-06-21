@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
 import { IPessoa } from "../../../interfaces/db/modelagem/interfaces/IPessoa";
-import TabCliente from "../../tabsheet/cadastro/TabCliente";
+import TabCliente from "../../tabsheet/cadastro/cliente/TabCliente";
 import Modal from "../Modal";
 
 export default class ModalPessoa extends React.Component<IModal, {}> {

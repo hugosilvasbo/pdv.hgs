@@ -1,12 +1,29 @@
 @import "../../Generics.scss";
 
-.titulo {
-  color: #575757;
-  font-size: $font_size_titulo;
+.title {
+  //color: $cor_bg_menu;
+  color: #494949;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
-.campo {
-  border-style: none;
-  border-bottom: 1px solid #b8b8b8;
-  padding: 5px;
+.field {
+  border: 1px solid #bdbdbd;
+  border-radius: 3px;
+  color: #686868;
+  font-size: 16px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-transition: 1s; /* Safari */
+  transition: 1s;
+
+  &:hover {
+    border: 1px solid $cor_bg_menu;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
