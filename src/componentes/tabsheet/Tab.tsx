@@ -38,7 +38,6 @@ export default class Tab extends React.Component<IProps, {}> {
   }
 
   clickTab = (e: any) => {
-    console.log(e.target)
     this.setState({ current_id: e.target.id })
   }
 

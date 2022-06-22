@@ -2,8 +2,8 @@ import React from "react";
 import { IItemBusca } from "../../../interfaces/db/modelagem/interfaces/api/IItemBuscaAPI";
 import { IItemPedido } from "../../../interfaces/db/modelagem/interfaces/IItemPedido";
 import jsonValue from "../../../utils/json/valores.json";
-import Campo from "../../fields/Campo";
-import CampoNumberFormat from "../../fields/CampoNumberFormat";
+import Campo from "../../input/Campo";
+import CampoNumberFormat from "../../input/CampoNumberFormat";
 import ModalSelecaoItem from "../../modal/busca/ModalSelecaoItem";
 
 interface IProdutoDetalheHome {

@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "../Modal";
 import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
-import Campo from "../../fields/Campo";
+import Campo from "../../input/Campo";
 import { IItem } from "../../../interfaces/db/modelagem/interfaces/IItem";
 import axios from "axios";
 import json_defs from "../../../utils/json/valores.json";

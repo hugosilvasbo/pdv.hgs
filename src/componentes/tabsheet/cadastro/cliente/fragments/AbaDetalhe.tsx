@@ -1,5 +1,5 @@
 import React from "react";
-import Campo from "../../../../fields/Campo";
+import Campo from "../../../../input/Campo";
 import jsonValor from "../../../../../utils/json/valores.json";
 
 interface IProps {

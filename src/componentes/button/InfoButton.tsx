@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../styles/componentes/button/InfoButton.module.scss";
+import style from "../../../styles/componentes/input/InfoButton.module.scss";
 import { GetBootstrapImgFromTypeImages, TypeImages } from "../../types/TypeImages";
 
 interface IInfoButton {
