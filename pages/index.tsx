@@ -1,16 +1,16 @@
 import React from "react";
-import ModalCadItem from "../src/componentes/modal/cadastro/ModalItem";
-import ModalCadCliente from "../src/componentes/modal/cadastro/ModalPessoa";
-import ModalAjuda from "../src/componentes/modal/ModalAjuda";
-import CabecalhoHome from "../src/componentes/screen/home/CabecalhoHome";
-import ConsumidorDetalhe from "../src/componentes/screen/home/ConsumidorDetalheHome";
-import ProdutoDetalhe from "../src/componentes/screen/home/ProdutoDetalheHome";
-import TabelaProdutos from "../src/componentes/screen/home/TabelaProdutosHome";
-import TituloBox from "../src/componentes/screen/home/TituloBox";
-import Totalizador from "../src/componentes/screen/home/TotalizadorHome";
-import { IItemPedido } from "../src/interfaces/db/modelagem/interfaces/IItemPedido";
+import { IItemPedido } from "../utils/interfaces/IItemPedido";
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
+import ModalAjuda from "../src/components/modal/ModalAjuda";
+import ModalCadItem from "../src/components/modal/cadastro/ModalItem"
+import ModalCadCliente from "../src/components/modal/cadastro/ModalPessoa";
+import CabecalhoHome from "../src/components/screen/home/CabecalhoHome";
+import TituloBox from "../src/components/screen/home/TituloBox";
+import Totalizador from "../src/components/screen/home/TotalizadorHome";
+import ConsumidorDetalhe from "../src/components/screen/home/ConsumidorDetalheHome";
+import ProdutoDetalhe from "../src/components/screen/home/ProdutoDetalheHome";
+import TabelaProdutos from "../src/components/screen/home/TabelaProdutosHome";
 
 class Home extends React.Component {
   state = {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "../../../styles/componentes/modal/Modal.module.scss";
-import { IModal } from "../../interfaces/componentes/modal/interface/IModal";
+import { IModal } from "../../../utils/interfaces/IModal";
 
 /**
  * Componente Modal.

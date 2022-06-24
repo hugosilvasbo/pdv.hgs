@@ -18,7 +18,7 @@ const Busca = () => {
                 key={"busca"}
                 titles={[{ caption: "ID" }, { caption: "Razão social" }, { caption: "Fantasia" }]}
                 values={
-                    [{ id: "1", razao_social: "MBM Solutions", fantasia: "MBM" }, { id: "2", razao_social: "AO3", fantasia: "IOB" }]
+                    [{ razao_social: "MBM Solutions", fantasia: "MBM" }, { razao_social: "AO3", fantasia: "IOB" }]
                 }
             />
         </>

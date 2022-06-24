@@ -1,6 +1,6 @@
 import React from "react";
+import { IModal } from "../../../utils/interfaces/IModal";
 import Modal from "./Modal";
-import { IModal } from "../../interfaces/componentes/modal/interface/IModal";
 
 export default class ModalAjuda extends React.Component<IModal, {}> {
   render() {

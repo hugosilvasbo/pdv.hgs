@@ -1,11 +1,11 @@
-import React from "react";
-import Modal from "../Modal";
-import { IModal } from "../../../interfaces/componentes/modal/interface/IModal";
-import Campo from "../../input/Campo";
-import { IItem } from "../../../interfaces/db/modelagem/interfaces/IItem";
 import axios from "axios";
-import json_defs from "../../../utils/json/valores.json";
-import { ToastContainer, toast } from "react-toastify";
+import React from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { IItem } from "../../../../utils/interfaces/IItem";
+import { IModal } from "../../../../utils/interfaces/IModal";
+import json_defs from "../../../../utils/json/valores.json";
+import Campo from "../../input/Campo";
+import Modal from "../Modal";
 
 export default class ModalItem extends React.Component<IModal, {}> {
   state = {

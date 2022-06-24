@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import db from "../../../src/db/config/Conexao";
-import json_msg from "../../../src/utils/json/mensagens.json"
+import db from "../../../backend/config/Conexao"
+import json_msg from "../../../utils/json/mensagens.json"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   let coalesce_preco = db.raw("coalesce(ip.preco, 0) as preco");
