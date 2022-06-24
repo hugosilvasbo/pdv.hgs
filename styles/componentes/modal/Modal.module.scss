@@ -43,7 +43,9 @@ $padding: 10px;
       .fs_subtitle {
         @extend .d_flex_row, .transition1s;
         align-items: center;
+        color: gray;
         font-size: 12px;
+        font-style: italic;
         margin-left: 10px;
 
         &:hover {
