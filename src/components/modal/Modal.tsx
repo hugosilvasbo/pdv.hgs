@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styles from "../../../styles/componentes/modal/Modal.module.scss";
 import { IModal } from "../../../utils/interfaces/IModal";
 
@@ -52,10 +52,13 @@ const Modal = (props: IModal) => {
       <div className={styles.modal} onClick={props.onClose}>
         <div className={styles.modal_content} onClick={(e) => e.stopPropagation()}>
           <div className={styles.modal_header}>
-            <h4 className={styles.modal_title}>{props.title}</h4>
+            <div className={styles.modal_title}>{props.title}</div>
           </div>
           <div className={styles.modal_body}>{props.children}</div>
           <div className={styles.modal_footer}>
+            <div className={styles.fs_subtitle}>
+              {props.footer_title ? "* " + props.footer_title : ""}
+            </div>
             <div className="btn-toolbar">
               {props.onFinish ? btnConcluir : ""}
               {props.onClose ? btnSair : ""}

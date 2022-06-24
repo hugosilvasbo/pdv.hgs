@@ -1,13 +1,20 @@
 //************************ variáveis ************************
-$cor_bg_menu: #009879; //#00c146;
+$cor_bg_menu: #ff7b00; //#00c146;
 $cor_bg_global: #e7e7e7;
 
-$font_size_titulo: 14px;
+$fs_title: 12px;
+$fs_subtitle: 8px;
 $font_color_titulo: #5f5f5f;
 
 $margin_20px: 20px;
 
 //************************ funções ************************
+
+.transition1s {
+  -webkit-transition: 1s;
+  /* Safari */
+  transition: 1s;
+}
 
 .d_flex_col {
   display: flex;

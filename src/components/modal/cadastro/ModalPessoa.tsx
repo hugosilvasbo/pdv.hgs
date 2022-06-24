@@ -27,7 +27,8 @@ export default class ModalPessoa extends React.Component<IModal, {}> {
     return (
       <>
         <Modal
-          title="Pessoas"
+          title="Cliente"
+          footer_title="Duplo clique no cliente para selecionar"
           onClose={this.props.onClose}
           onFinish={this.onFinish}
           showModal={this.props.showModal}

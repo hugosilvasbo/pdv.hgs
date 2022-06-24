@@ -1,51 +1,55 @@
 @import "../../Generics.scss";
 
-$border: 1px solid #eee;
+$border: 1px solid rgb(221, 221, 221);
 $height_header: 25px;
-$height_footer: 40px;
+$height_footer: 47px;
 $padding: 10px;
 
 .modal {
-  @extend .dflex_row_align_justify_center, .trbl_0;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  @extend .d_flex_col, .trbl_0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
   position: fixed;
 
   .modal_content {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: $padding;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
     height: 100%;
     width: 100%;
 
     .modal_header {
-      @extend .dflex_row_align_justify_center;
-      height: $height_header;
       border-bottom: $border;
+      padding: 8px 10px;
 
       .modal_title {
         font-size: 14px;
+        font-weight: 400;
       }
     }
 
     .modal_body {
       padding: $padding;
-      margin-top: 5px;
       overflow-y: scroll;
-      height: calc(100% - $height_footer - $height_header - 15px);
+      height: calc(100% - $height_footer - $height_header - 13px);
       border-bottom: $border;
     }
 
     .modal_footer {
-      @extend .dflex_row_align_justify_center;
-      justify-content: flex-end;
-      height: $height_footer;
-      bottom: 0;
-      margin-top: 10px;
-      margin-right: 10px;
+      @extend .d_flex_row;
+      justify-content: space-between;
+      padding: 8px;
+
+      .fs_subtitle {
+        @extend .d_flex_row, .transition1s;
+        align-items: center;
+        font-size: 12px;
+        margin-left: 10px;
+
+        &:hover {
+          color: $cor_bg_menu;
+        }
+      }
     }
   }
 }

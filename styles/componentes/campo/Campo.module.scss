@@ -8,6 +8,7 @@
 }
 
 .field {
+  @extend .transition1s;
   border: 1px solid #bdbdbd;
   border-radius: 3px;
   color: #686868;
@@ -16,8 +17,6 @@
   padding-bottom: 6px;
   padding-left: 10px;
   padding-right: 10px;
-  -webkit-transition: 1s; /* Safari */
-  transition: 1s;
 
   &:hover {
     border: 1px solid $cor_bg_menu;

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import db from "../../../backend/config/Conexao"
+import db from "../../../app/config/Conexao"
 import json_msg from "../../../utils/json/mensagens.json"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {

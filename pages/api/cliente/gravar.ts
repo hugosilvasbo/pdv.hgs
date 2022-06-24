@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import db from "../../../backend/config/Conexao";
+import db from "../../../app/config/Conexao";
 import msg from "../../../utils/json/mensagens.json"
 import { IPessoa } from "../../../utils/interfaces/IPessoa";
 

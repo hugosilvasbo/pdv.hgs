@@ -1,7 +1,6 @@
 @import "Generics.scss";
 
 $color_border: #b8b8b8;
-$font_size_titulo: 12px;
 
 .home_body {
   @extend .d_flex_col, .w_100_h_100;
@@ -35,7 +34,7 @@ $font_size_titulo: 12px;
     @extend .d_flex_row;
     border-bottom: 1px solid $color_border;
     color: $font_color_titulo;
-    font-size: $font_size_titulo;
+    font-size: $fs_title;
     height: 65px;
     justify-content: space-between;
     margin-bottom: $margin_20px;
