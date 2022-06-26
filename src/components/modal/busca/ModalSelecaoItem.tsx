@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
 import Modal from "../Modal";
-import jsonValue from "../../../../utils/json/valores.json";
-import { IModal } from "../../../../utils/interfaces/IModal";
+import jsonValue from "../../../json/valores.json";
+import { IModal } from "../../../interfaces/IModal";
 
 interface IModalProduto extends IModal {
   callbackModalItem: any;

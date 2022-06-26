@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../../../../styles/componentes/screen/home/TotalizadorHome.module.scss";
-import jsonValores from "../../../../utils/json/valores.json";
+import jsonValores from "../../../json/valores.json";
 
 interface ICampos {
   total: number;

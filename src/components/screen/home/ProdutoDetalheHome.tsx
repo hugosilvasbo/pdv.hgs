@@ -1,7 +1,7 @@
 import React from "react";
-import { IItemBusca } from "../../../../utils/interfaces/IItemBuscaAPI";
-import { IItemPedido } from "../../../../utils/interfaces/IItemPedido";
-import jsonValue from "../../../../utils/json/valores.json";
+import { IItemBusca } from "../../../interfaces/IItemBuscaAPI";
+import { IItemPedido } from "../../../interfaces/IItemPedido";
+import jsonValue from "../../../json/valores.json";
 import Campo from "../../input/Campo";
 import CampoNumberFormat from "../../input/CampoNumberFormat";
 import ModalSelecaoItem from "../../modal/busca/ModalSelecaoItem";

@@ -1,6 +1,6 @@
-import React from "react";
 import style from "../../../styles/componentes/table/Table.module.scss";
-import parseHTML from 'html-react-parser';
+import _ from "lodash"
+import React from "react";
 
 interface ITitle {
     caption: string;
@@ -8,45 +8,42 @@ interface ITitle {
 
 interface IProps {
     titles: ITitle[];
-    values: any
+    data: any;
 }
 
 const Table = (props: IProps) => {
-    const handleTitle = () => {
-        let res = props.titles.map((title: ITitle) => {
+    const thead = () => {
+        return props.titles.map((title: ITitle) => {
             return <th>
                 {title.caption}
             </th>
+        });
+    };
+
+    const tbody = () => {
+        let res = props.data.map((data: any) => {
+            return <tr>
+                <React.Fragment>
+                    {
+                        _.forEach(data, (e: any) => {
+                            return <td>{e}</td>
+                        })
+                    }
+                </React.Fragment>
+            </tr>;
         })
-        return <tr>{res}</tr>;
-    }
 
-    const handleBody = () => {
-        let res = "";
-
-        for (var i in props.values) {
-            res += "<tr>";
-
-            let obj = props.values[i];
-
-            for (let k in obj) {
-                res += '<td>' + obj[k] + '</td>'
-            }
-
-            res += "</tr>";
-        }
-
-        return parseHTML(String(res));
+        return res;
     }
 
     return (
         <>
             <table className={style.table}>
                 <thead >
-                    {handleTitle()}
+                    {thead()}
                 </thead>
                 <tbody>
-                    {handleBody()}
+                    {tbody()}
                 </tbody>
             </table>
         </>

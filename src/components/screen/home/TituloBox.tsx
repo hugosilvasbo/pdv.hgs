@@ -1,6 +1,6 @@
 import style from "../../../../styles/componentes/screen/home/TituloBox.module.scss";
-import { ITituloBox } from "../../../../utils/interfaces/ITituloBox";
-import { GetBootstrapImgFromTypeImages } from "../../../../utils/types/TypeImages";
+import { ITituloBox } from "../../../interfaces/ITituloBox";
+import { GetBootstrapImgFromTypeImages } from "../../../types/TypeImages";
 
 const TituloBox = (props: ITituloBox) => {
     return (

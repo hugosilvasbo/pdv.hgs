@@ -17,7 +17,7 @@ const Busca = () => {
             <TableBusca
                 key={"busca"}
                 titles={[{ caption: "ID" }, { caption: "Razão social" }, { caption: "Fantasia" }]}
-                values={
+                data={
                     [{ razao_social: "MBM Solutions", fantasia: "MBM" }, { razao_social: "AO3", fantasia: "IOB" }]
                 }
             />

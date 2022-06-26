@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../../../app/config/Conexao";
-import msg from "../../../utils/json/mensagens.json"
-import { IPessoa } from "../../../utils/interfaces/IPessoa";
+import msg from "../../../src/json/mensagens.json"
+import { IPessoa } from "../../../src/interfaces/IPessoa";
 
 
 export default async function handler(

@@ -1,6 +1,6 @@
 import React from "react";
-import { IItemPedido } from "../../../../utils/interfaces/IItemPedido";
-import jsonValue from "../../../../utils/json/valores.json";
+import { IItemPedido } from "../../../interfaces/IItemPedido";
+import jsonValue from "../../../json/valores.json";
 
 export default class TabelaProdutosHome extends React.Component<any, {}> {
   render() {

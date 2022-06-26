@@ -1,6 +1,6 @@
 import React from "react";
 import Campo from "../../../../input/Campo";
-import jsonValor from "../../../../../../utils/json/valores.json"
+import jsonValor from "../../../../../json/valores.json"
 
 interface IProps {
     handleRazaoSocialChange: any;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
-import { IModal } from "../../../../utils/interfaces/IModal";
-import { IPessoa } from "../../../../utils/interfaces/IPessoa";
+import { IModal } from "../../../interfaces/IModal";
+import { IPessoa } from "../../../interfaces/IPessoa";
 import TabCliente from "../../tabsheet/cadastro/cliente/TabCliente";
 import Modal from "../Modal";
 

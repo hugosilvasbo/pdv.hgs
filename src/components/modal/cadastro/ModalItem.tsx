@@ -1,9 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { IItem } from "../../../../utils/interfaces/IItem";
-import { IModal } from "../../../../utils/interfaces/IModal";
-import json_defs from "../../../../utils/json/valores.json";
+import { IItem } from "../../../interfaces/IItem";
+import { IModal } from "../../../interfaces/IModal";
+import json_defs from "../../../json/valores.json";
 import Campo from "../../input/Campo";
 import Modal from "../Modal";
 
