@@ -5,7 +5,7 @@ interface IProps {
     clientSelected: any
 }
 
-const Busca = (props: any) => {
+const Busca = (props: IProps) => {
     return (
         <>
             <FiltroBusca />
