@@ -1,7 +1,11 @@
 import TableBusca from "../../../../table/Table";
 import FiltroBusca from "./FiltroBusca";
 
-const Busca = () => {
+interface IProps {
+    clientSelected: any
+}
+
+const Busca = (props: any) => {
     return (
         <>
             <FiltroBusca />
@@ -13,7 +17,7 @@ const Busca = () => {
                 }
                 callbackSelectedData={
                     (res: any) => {
-                        console.log({ resultado_callback: res })
+                        props.clientSelected(res);
                     }
                 }
             />

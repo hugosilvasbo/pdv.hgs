@@ -9,7 +9,8 @@ interface IConsumidorDetalheHome {
 
 export class ConsumidorDetalheHome extends React.Component<IConsumidorDetalheHome, {}> {
   state = {
-    showModalPessoa: false
+    showModalPessoa: false,
+    clientSelected: {} as any
   }
 
   render() {
@@ -17,14 +18,24 @@ export class ConsumidorDetalheHome extends React.Component<IConsumidorDetalheHom
       <>
         <TituloBox label={this.props.caixa_status} type_img={""} />
         <div className="d-flex justify-content-between mb-3">
-          <InfoButton title="Cliente (F2)" subtitle="" icon="client" onClickItem={() => this.setState({ showModalPessoa: true })} />
-          <InfoButton title="Vendedor (F4)" subtitle="" icon="seller" onClickItem={() => console.log("Clicou no vendedor...")} />
+          <InfoButton
+            title="Cliente (F2)"
+            subtitle={this.state.clientSelected.razao_social}
+            icon="client"
+            onClickItem={() => this.setState({ showModalPessoa: true })}
+          />
+          <InfoButton
+            title="Vendedor (F4)"
+            subtitle=""
+            icon="seller"
+            onClickItem={() => console.log("Clicou no vendedor...")} />
         </div>
 
         <ModalPessoa
           onClose={() => this.setState({ showModalPessoa: false })}
           showModal={this.state.showModalPessoa}
           title={"Busca de Cliente"}
+          clientSelected={(res: any) => this.setState({ clientSelected: res, showModalPessoa: false })}
         />
       </>
     );

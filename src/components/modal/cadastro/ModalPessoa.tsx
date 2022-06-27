@@ -5,7 +5,11 @@ import { IPessoa } from "../../../interfaces/IPessoa";
 import TabCliente from "../../tabsheet/cadastro/cliente/TabCliente";
 import Modal from "../Modal";
 
-export default class ModalPessoa extends React.Component<IModal, {}> {
+interface IModalPessoa extends IModal {
+  clientSelected: any
+}
+
+export default class ModalPessoa extends React.Component<IModalPessoa, {}> {
   state = {
     pessoa: {} as IPessoa,
   };
@@ -37,6 +41,7 @@ export default class ModalPessoa extends React.Component<IModal, {}> {
           <TabCliente
             handleFantasiaChange={this.handleFantasiaChange}
             handleRazaoSocialChange={this.handleRazaoSocialChange}
+            clientSelected={(res: any) => this.props.clientSelected(res)}
           />
         </Modal>
       </>

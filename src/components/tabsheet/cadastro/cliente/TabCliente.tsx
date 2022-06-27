@@ -4,7 +4,8 @@ import AbaDetalhe from "./fragments/AbaDetalhe";
 
 interface IProps {
   handleRazaoSocialChange: any,
-  handleFantasiaChange: any
+  handleFantasiaChange: any,
+  clientSelected: any
 }
 
 const TabCliente = (props: IProps) => {
@@ -13,8 +14,8 @@ const TabCliente = (props: IProps) => {
       tabs={[
         {
           caption: "Busca",
-          content: <AbaBusca />,
-          id: "busca"
+          content: <AbaBusca clientSelected={(res: any) => props.clientSelected(res)} />,
+          id: "busca",
         },
         {
           caption: "Detalhe",

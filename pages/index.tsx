@@ -14,6 +14,7 @@ import styles from "../styles/Home.module.scss";
 class Home extends React.Component {
   state = {
     caixa_status: "CAIXA ABERTO",
+    cliente_venda: {},
     itens: [] as IItemPedido[],
     total: 0,
     showModalAjuda: false,
@@ -40,7 +41,6 @@ class Home extends React.Component {
         case 123:
           if (e.ctrlKey) {
             this.setState({ showModalAjuda: true });
-            console.log(e);
             e.preventDefault();
           }
           break;
@@ -110,6 +110,7 @@ class Home extends React.Component {
         <ModalCadCliente
           onClose={() => this.setState({ showModalPessoaCadastro: false })}
           showModal={this.state.showModalPessoaCadastro}
+          clientSelected={(res: any) => this.setState({ cliente_venda: res })}
         />
       </>
     );
