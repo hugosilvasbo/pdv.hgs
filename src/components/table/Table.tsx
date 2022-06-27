@@ -1,6 +1,5 @@
+import _ from "lodash";
 import style from "../../../styles/componentes/table/Table.module.scss";
-import _, { mapValues } from "lodash"
-import React from "react";
 
 interface ITitle {
     caption: string;
@@ -9,6 +8,7 @@ interface ITitle {
 interface IProps {
     titles: ITitle[];
     data: any;
+    callbackSelectedData?: any;
 }
 
 const Table = (props: IProps) => {
@@ -20,6 +20,15 @@ const Table = (props: IProps) => {
         });
     };
 
+    const onClickTable = (data: any) => {
+        if (props.callbackSelectedData) {
+            props.callbackSelectedData(data);
+            return;
+        }
+
+        console.log("props.selectedData não existe em Table.tsx.");
+    }
+
     return (
         <>
             <table className={style.table}>
@@ -28,8 +37,8 @@ const Table = (props: IProps) => {
                 </thead>
                 <tbody>
                     {props.data.map((data: any, key: string) => (
-                        <tr key={key}>
-                            {_.map(_.mapValues(data, (dt: any) => <td>{dt}</td>), (td_: any) => { return td_ })}
+                        <tr key={key} onClick={() => onClickTable(data)}>
+                            {_.map((_.mapValues(data, (dt: any) => <td>{dt}</td>)), (td_: any) => { return td_ })}
                         </tr>
                     ))}
                 </tbody>

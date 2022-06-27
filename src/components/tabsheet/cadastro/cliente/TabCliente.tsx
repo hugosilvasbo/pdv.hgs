@@ -1,6 +1,6 @@
 import Tab from "../../Tab";
-import AbaBusca from "./tabs/AbaBusca";
-import AbaDetalhe from "./tabs/AbaDetalhe";
+import AbaBusca from "./fragments/AbaBusca";
+import AbaDetalhe from "./fragments/AbaDetalhe";
 
 interface IProps {
   handleRazaoSocialChange: any,
