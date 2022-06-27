@@ -1,5 +1,5 @@
 import style from "../../../styles/componentes/table/Table.module.scss";
-import _ from "lodash"
+import _, { mapValues } from "lodash"
 import React from "react";
 
 interface ITitle {
@@ -20,22 +20,6 @@ const Table = (props: IProps) => {
         });
     };
 
-    const tbody = () => {
-        let res = props.data.map((data: any) => {
-            return <tr>
-                <React.Fragment>
-                    {
-                        _.forEach(data, (e: any) => {
-                            return <td>{e}</td>
-                        })
-                    }
-                </React.Fragment>
-            </tr>;
-        })
-
-        return res;
-    }
-
     return (
         <>
             <table className={style.table}>
@@ -43,7 +27,11 @@ const Table = (props: IProps) => {
                     {thead()}
                 </thead>
                 <tbody>
-                    {tbody()}
+                    {props.data.map((data: any, key: string) => (
+                        <tr key={key}>
+                            {_.map(_.mapValues(data, (dt: any) => <td>{dt}</td>), (td_: any) => { return td_ })}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </>
