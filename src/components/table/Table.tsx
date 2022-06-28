@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const Table = (props: IProps) => {
-    const thead = () => {
+    const prepareTitle = () => {
         return props.titles.map((title: ITitle) => {
             return <th>
                 {title.caption}
@@ -29,18 +29,26 @@ const Table = (props: IProps) => {
         console.log("props.selectedData não existe em Table.tsx.");
     }
 
+    const prepareContent = () => {
+        return props.data.map((data: any) => {
+            return <tr onClick={() => onClickTable(data)}>
+                {
+                    _.map(data, (d: any) => {
+                        return <td>{d}</td>
+                    })
+                }
+            </tr>
+        });
+    }
+
     return (
         <>
             <table className={style.table}>
                 <thead >
-                    {thead()}
+                    {prepareTitle()}
                 </thead>
                 <tbody>
-                    {props.data.map((data: any, key: string) => (
-                        <tr key={key} onClick={() => onClickTable(data)}>
-                            {_.map((_.mapValues(data, (dt: any) => <td>{dt}</td>)), (td_: any) => { return td_ })}
-                        </tr>
-                    ))}
+                    {prepareContent()}
                 </tbody>
             </table>
         </>

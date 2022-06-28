@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { Pessoa } from "../../../../../../app/model/Pessoa";
 import TableBusca from "../../../../table/Table";
 import FiltroBusca from "./FiltroBusca";
 
@@ -6,6 +8,17 @@ interface IProps {
 }
 
 const Busca = (props: IProps) => {
+    const [pessoas, setPessoas] = useState(0);
+
+    useEffect(() => {
+        async function getPessoas() {
+            let p = new Pessoa();
+            let data = await p.findAll();
+        }
+
+        getPessoas();
+    });
+
     return (
         <>
             <FiltroBusca />
