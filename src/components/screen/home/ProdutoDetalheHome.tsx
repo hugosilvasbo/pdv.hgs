@@ -4,7 +4,7 @@ import { IItemPedido } from "../../../interfaces/IItemPedido";
 import jsonValue from "../../../json/valores.json";
 import Campo from "../../input/Campo";
 import CampoNumberFormat from "../../input/CampoNumberFormat";
-import ModalSelecaoItem from "../../modal/busca/ModalSelecaoItem";
+import ModalSelecaoItem from "../../../../pages/busca/ModalSelecaoItem";
 
 interface IProdutoDetalheHome {
   callBackProdutoDetalheHome: any;

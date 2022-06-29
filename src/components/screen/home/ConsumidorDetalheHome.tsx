@@ -1,6 +1,6 @@
 import React from "react";
 import InfoButton from "../../button/InfoButton";
-import ModalPessoa from "../../modal/cadastro/ModalPessoa";
+import ModalPessoa from "../../../../pages/cadastro/ModalPessoa";
 import TituloBox from "./TituloBox";
 
 interface IConsumidorDetalheHome {
